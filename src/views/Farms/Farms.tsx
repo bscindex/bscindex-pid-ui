@@ -108,7 +108,7 @@ const Farms: React.FC = () => {
           </Route>
         </FlexLayout>
       </div>
-      <Image src="/images/farm-bg.svg" alt="PidFinance illustration" width={1080} height={600} responsive />
+      <Image src="/images/farm-bg.png" alt="PidFinance illustration" width={1080} height={600} responsive />
     </Page>
   )
 }
