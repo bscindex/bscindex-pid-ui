@@ -51,7 +51,7 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
 }) => {
   const TranslateString = useI18n()
   const liquidityUrlPathParts = getLiquidityUrlPathParts({ quoteTokenAdresses, quoteTokenSymbol, tokenAddresses })
-//  const lpAddress = getLpAddress()
+  //  const lpAddress = getLpAddress()
   return (
     <Wrapper>
       <Flex justifyContent="space-between">
@@ -61,9 +61,9 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
         </StyledLinkExternal>
       </Flex>
       {!removed && (
-     <Flex justifyContent="space-between">
+        <Flex justifyContent="space-between">
           <Text>{TranslateString(23, ' ')}</Text>
-      {/*    <StyledLinkExternal href={`https://info.cheeseswap.app/pair/${tokenAddresses}`}>
+          {/*    <StyledLinkExternal href={`https://info.cheeseswap.app/pair/${tokenAddresses}`}>
             {lpLabel}
           </StyledLinkExternal> */}
         </Flex>

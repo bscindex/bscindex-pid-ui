@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Heading, Text, BaseLayout } from '@bscindex/uikit'
 import useI18n from 'hooks/useI18n'
 import Page from 'components/layout/Page'
-import CidStats from './components/CidStats'
+import PidStats from './components/PidStats'
 import FarmStakingCard from './components/FarmStakingCard'
 import LotteryCard from './components/LotteryCard'
 import TotalValueLockedCard from './components/TotalValueLockedCard'
@@ -83,24 +83,24 @@ const Home: React.FC = () => {
     <Page>
       <Hero>
         <Heading as="h1" size="xl" mb="24px" color="secondary">
-          {TranslateString(576, 'CidFinance')}
+          {TranslateString(576, 'PidFinance')}
         </Heading>
         <Text>{TranslateString(578, 'The Best Modern Yield Farm on Binance Smart Chain.')}</Text>
       </Hero>
       <div>
-      <Cards>
-        <FarmStakingCard />
-        <LotteryCard />
-      </Cards>
-      <CTACards>
-        <EarnAPYCard />
-        <EarnAssetCard />
-        <WinCard />
-      </CTACards>
-      <Cards>
-        <CidStats />
-        <TotalValueLockedCard />
-      </Cards>
+        <Cards>
+          <FarmStakingCard />
+          <LotteryCard />
+        </Cards>
+        <CTACards>
+          <EarnAPYCard />
+          <EarnAssetCard />
+          <WinCard />
+        </CTACards>
+        <Cards>
+          <PidStats />
+          <TotalValueLockedCard />
+        </Cards>
       </div>
     </Page>
   )

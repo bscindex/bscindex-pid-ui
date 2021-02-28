@@ -7,7 +7,7 @@ import { useLotteryAllowance } from 'hooks/useAllowance'
 import { useLotteryApprove } from 'hooks/useApprove'
 import useTickets from 'hooks/useTickets'
 import useTokenBalance from 'hooks/useTokenBalance'
-import { getCidAddress } from 'utils/addressHelpers'
+import { getPidAddress } from 'utils/addressHelpers'
 import BuyTicketModal from './BuyTicketModal'
 import MyTicketsModal from './UserTicketsModal'
 import PurchaseWarningModal from './PurchaseWarningModal'
@@ -28,13 +28,13 @@ const TicketCard: React.FC = () => {
   const allowance = useLotteryAllowance()
   const { onApprove } = useLotteryApprove()
   const lotteryHasDrawn = useGetLotteryHasDrawn()
-  const cidBalance = useTokenBalance(getCidAddress())
+  const pidBalance = useTokenBalance(getPidAddress())
 
   const tickets = useTickets()
   const ticketsLength = tickets.length
   const [onPresentMyTickets] = useModal(<MyTicketsModal myTicketNumbers={tickets} from="buy" />)
   const [onPresentApprove] = useModal(<PurchaseWarningModal />)
-  const [onPresentBuy] = useModal(<BuyTicketModal max={cidBalance} tokenName="CID" />)
+  const [onPresentBuy] = useModal(<BuyTicketModal max={pidBalance} tokenName="PID" />)
 
   const handleApprove = useCallback(async () => {
     try {
@@ -58,7 +58,7 @@ const TicketCard: React.FC = () => {
             {TranslateString(432, 'View your tickets')}
           </Button>
           <Button fullWidth disabled={requestedApproval} onClick={handleApprove}>
-            {TranslateString(999, 'Approve CID')}
+            {TranslateString(999, 'Approve PID')}
           </Button>
         </>
       )
@@ -83,11 +83,7 @@ const TicketCard: React.FC = () => {
 
   return (
     <CardActions>
-      {lotteryHasDrawn ? (
-        <Button disabled> {TranslateString(999, 'On sale')}</Button>
-      ) : (
-        renderLotteryTicketButtons()
-      )}
+      {lotteryHasDrawn ? <Button disabled> {TranslateString(999, 'On sale')}</Button> : renderLotteryTicketButtons()}
     </CardActions>
   )
 }

@@ -2,18 +2,18 @@ import { useEffect, useState } from 'react'
 import { AbiItem } from 'web3-utils'
 import { ContractOptions } from 'web3-eth-contract'
 import useWeb3 from 'hooks/useWeb3'
-import { getMasterChefAddress, getCidAddress, getLotteryAddress, getLotteryTicketAddress } from 'utils/addressHelpers'
+import { getMasterChefAddress, getPidAddress, getLotteryAddress, getLotteryTicketAddress } from 'utils/addressHelpers'
 import { poolsConfig } from 'config/constants'
 import { PoolCategory } from 'config/constants/types'
 import ifo from 'config/abi/ifo.json'
 import erc20 from 'config/abi/erc20.json'
 import rabbitmintingfarm from 'config/abi/rabbitmintingfarm.json'
-import cidRabbits from 'config/abi/cidRabbits.json'
+import pidRabbits from 'config/abi/pidRabbits.json'
 import lottery from 'config/abi/lottery.json'
 import lotteryTicket from 'config/abi/lotteryNft.json'
 import masterChef from 'config/abi/masterchef.json'
-import csiChef from 'config/abi/csiChef.json'
-import csiChefBnb from 'config/abi/csiChefBnb.json'
+import psiChef from 'config/abi/psiChef.json'
+import psiChefBnb from 'config/abi/psiChefBnb.json'
 
 const useContract = (abi: AbiItem, address: string, contractOptions?: ContractOptions) => {
   const web3 = useWeb3()
@@ -40,8 +40,8 @@ export const useERC20 = (address: string) => {
   return useContract(erc20Abi, address)
 }
 
-export const useCid = () => {
-  return useERC20(getCidAddress())
+export const usePid = () => {
+  return useERC20(getPidAddress())
 }
 
 export const useRabbitMintingFarm = (address: string) => {
@@ -49,9 +49,9 @@ export const useRabbitMintingFarm = (address: string) => {
   return useContract(rabbitMintingFarmAbi, address)
 }
 
-export const useCidRabbits = (address: string) => {
-  const cidRabbitsAbi = (cidRabbits as unknown) as AbiItem
-  return useContract(cidRabbitsAbi, address)
+export const usePidRabbits = (address: string) => {
+  const pidRabbitsAbi = (pidRabbits as unknown) as AbiItem
+  return useContract(pidRabbitsAbi, address)
 }
 
 export const useLottery = () => {
@@ -69,9 +69,9 @@ export const useMasterchef = () => {
   return useContract(abi, getMasterChefAddress())
 }
 
-export const useCsiChef = (id) => {
-  const config = poolsConfig.find((pool) => pool.csiId === id)
-  const rawAbi = config.poolCategory === PoolCategory.BINANCE ? csiChefBnb : csiChef
+export const usePsiChef = (id) => {
+  const config = poolsConfig.find((pool) => pool.psiId === id)
+  const rawAbi = config.poolCategory === PoolCategory.BINANCE ? psiChefBnb : psiChef
   const abi = (rawAbi as unknown) as AbiItem
   return useContract(abi, config.contractAddress[process.env.REACT_APP_CHAIN_ID])
 }

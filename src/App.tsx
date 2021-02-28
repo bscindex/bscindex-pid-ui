@@ -61,7 +61,7 @@ const App: React.FC = () => {
             <Route path="/staking">
               <Redirect to="/pools" />
             </Route>
-            <Route path="/csi">
+            <Route path="/psi">
               <Redirect to="/pools" />
             </Route>
             {/* 404 */}

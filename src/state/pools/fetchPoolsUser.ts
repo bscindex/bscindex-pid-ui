@@ -1,7 +1,7 @@
 import { AbiItem } from 'web3-utils'
 import poolsConfig from 'config/constants/pools'
 import masterChefABI from 'config/abi/masterchef.json'
-import csiChefABI from 'config/abi/csiChef.json'
+import psiChefABI from 'config/abi/psiChef.json'
 import erc20ABI from 'config/abi/erc20.json'
 import { QuoteToken } from 'config/constants/types'
 import multicall from 'utils/multicall'
@@ -11,11 +11,11 @@ import BigNumber from 'bignumber.js'
 
 const CHAIN_ID = process.env.REACT_APP_CHAIN_ID
 
-// Pool 0, Cid / Cid is a different kind of contract (master chef)
+// Pool 0, Pid / Pid is a different kind of contract (master chef)
 // BNB pools use the native BNB token (wrapping ? unwrapping is done at the contract level)
 const nonBnbPools = poolsConfig.filter((p) => p.stakingTokenName !== QuoteToken.BNB)
 const bnbPools = poolsConfig.filter((p) => p.stakingTokenName === QuoteToken.BNB)
-const nonMasterPools = poolsConfig.filter((p) => p.csiId !== 0)
+const nonMasterPools = poolsConfig.filter((p) => p.psiId !== 0)
 const web3 = getWeb3()
 const masterChefContract = new web3.eth.Contract((masterChefABI as unknown) as AbiItem, getMasterChefAddress())
 
@@ -28,7 +28,7 @@ export const fetchPoolsAllowance = async (account) => {
 
   const allowances = await multicall(erc20ABI, calls)
   return nonBnbPools.reduce(
-    (acc, pool, index) => ({ ...acc, [pool.csiId]: new BigNumber(allowances[index]).toJSON() }),
+    (acc, pool, index) => ({ ...acc, [pool.psiId]: new BigNumber(allowances[index]).toJSON() }),
     {},
   )
 }
@@ -42,16 +42,13 @@ export const fetchUserBalances = async (account) => {
   }))
   const tokenBalancesRaw = await multicall(erc20ABI, calls)
   const tokenBalances = nonBnbPools.reduce(
-    (acc, pool, index) => ({ ...acc, [pool.csiId]: new BigNumber(tokenBalancesRaw[index]).toJSON() }),
+    (acc, pool, index) => ({ ...acc, [pool.psiId]: new BigNumber(tokenBalancesRaw[index]).toJSON() }),
     {},
   )
 
   // BNB pools
   const bnbBalance = await web3.eth.getBalance(account)
-  const bnbBalances = bnbPools.reduce(
-    (acc, pool) => ({ ...acc, [pool.csiId]: new BigNumber(bnbBalance).toJSON() }),
-    {},
-  )
+  const bnbBalances = bnbPools.reduce((acc, pool) => ({ ...acc, [pool.psiId]: new BigNumber(bnbBalance).toJSON() }), {})
 
   return { ...tokenBalances, ...bnbBalances }
 }
@@ -62,16 +59,16 @@ export const fetchUserStakeBalances = async (account) => {
     name: 'userInfo',
     params: [account],
   }))
-  const userInfo = await multicall(csiChefABI, calls)
+  const userInfo = await multicall(psiChefABI, calls)
   const stakedBalances = nonMasterPools.reduce(
     (acc, pool, index) => ({
       ...acc,
-      [pool.csiId]: new BigNumber(userInfo[index].amount._hex).toJSON(),
+      [pool.psiId]: new BigNumber(userInfo[index].amount._hex).toJSON(),
     }),
     {},
   )
 
-  // Cid / Cid pool
+  // Pid / Pid pool
   const { amount: masterPoolAmount } = await masterChefContract.methods.userInfo('0', account).call()
 
   return { ...stakedBalances, 0: new BigNumber(masterPoolAmount).toJSON() }
@@ -83,17 +80,17 @@ export const fetchUserPendingRewards = async (account) => {
     name: 'pendingReward',
     params: [account],
   }))
-  const res = await multicall(csiChefABI, calls)
+  const res = await multicall(psiChefABI, calls)
   const pendingRewards = nonMasterPools.reduce(
     (acc, pool, index) => ({
       ...acc,
-      [pool.csiId]: new BigNumber(res[index]).toJSON(),
+      [pool.psiId]: new BigNumber(res[index]).toJSON(),
     }),
     {},
   )
 
-  // Cid / Cid pool
-  const pendingReward = await masterChefContract.methods.pendingCid('0', account).call()
+  // Pid / Pid pool
+  const pendingReward = await masterChefContract.methods.pendingPid('0', account).call()
 
   return { ...pendingRewards, 0: new BigNumber(pendingReward).toJSON() }
 }

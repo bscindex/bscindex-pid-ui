@@ -2,8 +2,8 @@ import { useCallback } from 'react'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { useDispatch } from 'react-redux'
 import { fetchFarmUserDataAsync, updateUserStakedBalance, updateUserBalance } from 'state/actions'
-import { stake, csiStake, csiStakeBnb } from 'utils/callHelpers'
-import { useMasterchef, useCsiChef } from './useContract'
+import { stake, psiStake, psiStakeBnb } from 'utils/callHelpers'
+import { useMasterchef, usePsiChef } from './useContract'
 
 const useStake = (pid: number) => {
   const dispatch = useDispatch()
@@ -22,25 +22,25 @@ const useStake = (pid: number) => {
   return { onStake: handleStake }
 }
 
-export const useCsiStake = (csiId, isUsingBnb = false) => {
+export const usePsiStake = (psiId, isUsingBnb = false) => {
   const dispatch = useDispatch()
   const { account } = useWallet()
   const masterChefContract = useMasterchef()
-  const csiChefContract = useCsiChef(csiId)
+  const psiChefContract = usePsiChef(psiId)
 
   const handleStake = useCallback(
     async (amount: string) => {
-      if (csiId === 0) {
+      if (psiId === 0) {
         await stake(masterChefContract, 0, amount, account)
       } else if (isUsingBnb) {
-        await csiStakeBnb(csiChefContract, amount, account)
+        await psiStakeBnb(psiChefContract, amount, account)
       } else {
-        await csiStake(csiChefContract, amount, account)
+        await psiStake(psiChefContract, amount, account)
       }
-      dispatch(updateUserStakedBalance(csiId, account))
-      dispatch(updateUserBalance(csiId, account))
+      dispatch(updateUserStakedBalance(psiId, account))
+      dispatch(updateUserBalance(psiId, account))
     },
-    [account, dispatch, isUsingBnb, masterChefContract, csiChefContract, csiId],
+    [account, dispatch, isUsingBnb, masterChefContract, psiChefContract, psiId],
   )
 
   return { onStake: handleStake }

@@ -19,15 +19,15 @@ const StyledLink = styled(Link)`
 
 const PartnerCard = () => {
   const TranslateString = useI18n()
-//  const data = useGetStats()
-//  const tvl = data ? data.total_value_locked_all.toLocaleString('en-US', { maximumFractionDigits: 0 }) : null
+  //  const data = useGetStats()
+  //  const tvl = data ? data.total_value_locked_all.toLocaleString('en-US', { maximumFractionDigits: 0 }) : null
 
   return (
     <StyledPartnerCard>
       <CardBody>
-      <Heading size="xl" mb="24px">
-        {TranslateString(550, ' Partnership')}
-      </Heading>
+        <Heading size="xl" mb="24px">
+          {TranslateString(550, ' Partnership')}
+        </Heading>
         <StyledLink href="https://cheeseswap.app/">
           <CardImage src="/images/cheeseswap.svg" alt="CheeseSwap logo" width={180} />
         </StyledLink>

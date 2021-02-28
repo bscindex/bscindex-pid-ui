@@ -12,11 +12,13 @@ const config: MenuEntry[] = [
     items: [
       {
         label: 'Exchange',
-        href: 'https://cheeseswap.app/#/swap?inputCurrency=0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c&outputCurrency=0xcfdf8a80fecaeecc144fa74c0df8691bfd0e26e3',
+        href:
+          'https://cheeseswap.app/#/swap?inputCurrency=0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c&outputCurrency=0xcfdf8a80fecaeecc144fa74c0df8691bfd0e26e3',
       },
       {
         label: 'Liquidity',
-        href: 'https://cheeseswap.app/#/add/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c/0xcfdf8a80fecaeecc144fa74c0df8691bfd0e26e3',
+        href:
+          'https://cheeseswap.app/#/add/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c/0xcfdf8a80fecaeecc144fa74c0df8691bfd0e26e3',
       },
     ],
   },
@@ -58,7 +60,7 @@ const config: MenuEntry[] = [
     items: [
       {
         label: 'Github',
-        href: 'https://github.com/cidfinance',
+        href: 'https://github.com/pidfinance',
       },
     ],
   },

@@ -84,20 +84,20 @@ const ExpandingWrapper = styled.div<{ expanded: boolean }>`
 interface FarmCardProps {
   farm: FarmWithStakedValue
   removed: boolean
-  cidPrice?: BigNumber
+  pidPrice?: BigNumber
   bnbPrice?: BigNumber
   ethereum?: provider
   account?: string
 }
 
-const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cidPrice, bnbPrice, ethereum, account }) => {
+const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, pidPrice, bnbPrice, ethereum, account }) => {
   const TranslateString = useI18n()
 
   const [showExpandableSection, setShowExpandableSection] = useState(false)
 
   const isCommunityFarm = communityFarms.includes(farm.tokenSymbol)
-  // We assume the token name is coin pair + lp e.g. CID-BNB LP, LINK-BNB LP,
-  // NAR-CID LP. The images should be cid-bnb.svg, link-bnb.svg, nar-cid.svg
+  // We assume the token name is coin pair + lp e.g. PID-BNB LP, LINK-BNB LP,
+  // NAR-PID LP. The images should be pid-bnb.svg, link-bnb.svg, nar-pid.svg
   const farmImage = farm.lpSymbol.split(' ')[0].toLocaleLowerCase()
 
   const totalValue: BigNumber = useMemo(() => {
@@ -107,25 +107,25 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cidPrice, bnbPrice, 
     if (farm.quoteTokenSymbol === QuoteToken.BNB) {
       return bnbPrice.times(farm.lpTotalInQuoteToken)
     }
-    if (farm.quoteTokenSymbol === QuoteToken.CID) {
-      return cidPrice.times(farm.lpTotalInQuoteToken)
+    if (farm.quoteTokenSymbol === QuoteToken.PID) {
+      return pidPrice.times(farm.lpTotalInQuoteToken)
     }
     return farm.lpTotalInQuoteToken
-  }, [bnbPrice, cidPrice, farm.lpTotalInQuoteToken, farm.quoteTokenSymbol])
+  }, [bnbPrice, pidPrice, farm.lpTotalInQuoteToken, farm.quoteTokenSymbol])
 
   const totalValueFormated = totalValue
     ? `$${Number(totalValue).toLocaleString(undefined, { maximumFractionDigits: 0 })}`
     : '-'
 
-  const lpLabel = farm.lpSymbol && farm.lpSymbol.toUpperCase().replace('CIDFINANCE', '')
-  const earnLabel = farm.dual ? farm.dual.earnLabel : 'CID'
+  const lpLabel = farm.lpSymbol && farm.lpSymbol.toUpperCase().replace('PIDFINANCE', '')
+  const earnLabel = farm.dual ? farm.dual.earnLabel : 'PID'
   const farmAPY = farm.apy && farm.apy.times(new BigNumber(100)).toNumber().toLocaleString('en-US').slice(0, -1)
 
   const { quoteTokenAdresses, quoteTokenSymbol, tokenAddresses } = farm
 
   return (
     <FCard>
-      {farm.tokenSymbol === 'CID' && <StyledCardAccent />}
+      {farm.tokenSymbol === 'PID' && <StyledCardAccent />}
       <CardHeading
         lpLabel={lpLabel}
         multiplier={farm.multiplier}
@@ -144,7 +144,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cidPrice, bnbPrice, 
                   quoteTokenAdresses={quoteTokenAdresses}
                   quoteTokenSymbol={quoteTokenSymbol}
                   tokenAddresses={tokenAddresses}
-                  cidPrice={cidPrice}
+                  pidPrice={pidPrice}
                   apy={farm.apy}
                 />
                 {farmAPY}%

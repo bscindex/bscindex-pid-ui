@@ -2,13 +2,13 @@
   {
     "inputs": [
       {
-        "internalType": "contract CidToken",
-        "name": "_cid",
+        "internalType": "contract PidToken",
+        "name": "_pid",
         "type": "address"
       },
       {
-        "internalType": "contract CsiBar",
-        "name": "_csi",
+        "internalType": "contract PsiBar",
+        "name": "_psi",
         "type": "address"
       },
       {
@@ -18,7 +18,7 @@
       },
       {
         "internalType": "uint256",
-        "name": "_cidPerBlock",
+        "name": "_pidPerBlock",
         "type": "uint256"
       },
       {
@@ -256,10 +256,10 @@
   },
   {
     "inputs": [],
-    "name": "cid",
+    "name": "pid",
     "outputs": [
       {
-        "internalType": "contract CidToken",
+        "internalType": "contract PidToken",
         "name": "",
         "type": "address"
       }
@@ -269,7 +269,7 @@
   },
   {
     "inputs": [],
-    "name": "cidPerBlock",
+    "name": "pidPerBlock",
     "outputs": [
       {
         "internalType": "uint256",
@@ -352,7 +352,7 @@
         "type": "address"
       }
     ],
-    "name": "pendingCid",
+    "name": "pendingPid",
     "outputs": [
       {
         "internalType": "uint256",
@@ -390,7 +390,7 @@
       },
       {
         "internalType": "uint256",
-        "name": "accCidPerShare",
+        "name": "accPidPerShare",
         "type": "uint256"
       }
     ],
@@ -419,10 +419,10 @@
   },
   {
     "inputs": [],
-    "name": "csi",
+    "name": "psi",
     "outputs": [
       {
-        "internalType": "contract CsiBar",
+        "internalType": "contract PsiBar",
         "name": "",
         "type": "address"
       }

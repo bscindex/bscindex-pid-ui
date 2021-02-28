@@ -4,13 +4,13 @@ import styled from 'styled-components'
 import { Modal, Text, LinkExternal, Flex } from '@bscindex/uikit'
 import useI18n from 'hooks/useI18n'
 import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
-import { calculateCidEarnedPerThousandDollars, apyModalRoi } from 'utils/compoundApyHelpers'
+import { calculatePidEarnedPerThousandDollars, apyModalRoi } from 'utils/compoundApyHelpers'
 import { Address } from 'config/constants/types'
 
 interface ApyCalculatorModalProps {
   onDismiss?: () => void
   lpLabel?: string
-  cidPrice?: BigNumber
+  pidPrice?: BigNumber
   apy?: BigNumber
   quoteTokenAdresses?: Address
   quoteTokenSymbol?: string
@@ -39,18 +39,18 @@ const ApyCalculatorModal: React.FC<ApyCalculatorModalProps> = ({
   quoteTokenAdresses,
   quoteTokenSymbol,
   tokenAddresses,
-  cidPrice,
+  pidPrice,
   apy,
 }) => {
   const TranslateString = useI18n()
   const liquidityUrlPathParts = getLiquidityUrlPathParts({ quoteTokenAdresses, quoteTokenSymbol, tokenAddresses })
   const farmApy = apy.times(new BigNumber(100)).toNumber()
-  const oneThousandDollarsWorthOfCid = 1000 / cidPrice.toNumber()
+  const oneThousandDollarsWorthOfPid = 1000 / pidPrice.toNumber()
 
-  const cidEarnedPerThousand1D = calculateCidEarnedPerThousandDollars({ numberOfDays: 1, farmApy, cidPrice })
-  const cidEarnedPerThousand7D = calculateCidEarnedPerThousandDollars({ numberOfDays: 7, farmApy, cidPrice })
-  const cidEarnedPerThousand30D = calculateCidEarnedPerThousandDollars({ numberOfDays: 30, farmApy, cidPrice })
-  const cidEarnedPerThousand365D = calculateCidEarnedPerThousandDollars({ numberOfDays: 365, farmApy, cidPrice })
+  const pidEarnedPerThousand1D = calculatePidEarnedPerThousandDollars({ numberOfDays: 1, farmApy, pidPrice })
+  const pidEarnedPerThousand7D = calculatePidEarnedPerThousandDollars({ numberOfDays: 7, farmApy, pidPrice })
+  const pidEarnedPerThousand30D = calculatePidEarnedPerThousandDollars({ numberOfDays: 30, farmApy, pidPrice })
+  const pidEarnedPerThousand365D = calculatePidEarnedPerThousandDollars({ numberOfDays: 365, farmApy, pidPrice })
 
   return (
     <Modal title="ROI" onDismiss={onDismiss}>
@@ -67,7 +67,7 @@ const ApyCalculatorModal: React.FC<ApyCalculatorModalProps> = ({
         </GridItem>
         <GridItem>
           <Text fontSize="12px" bold color="textSubtle" textTransform="uppercase" mb="20px">
-            {TranslateString(999, 'CID per $1000')}
+            {TranslateString(999, 'PID per $1000')}
           </Text>
         </GridItem>
         {/* 1 day row */}
@@ -76,11 +76,11 @@ const ApyCalculatorModal: React.FC<ApyCalculatorModalProps> = ({
         </GridItem>
         <GridItem>
           <Text>
-            {apyModalRoi({ amountEarned: cidEarnedPerThousand1D, amountInvested: oneThousandDollarsWorthOfCid })}%
+            {apyModalRoi({ amountEarned: pidEarnedPerThousand1D, amountInvested: oneThousandDollarsWorthOfPid })}%
           </Text>
         </GridItem>
         <GridItem>
-          <Text>{cidEarnedPerThousand1D}</Text>
+          <Text>{pidEarnedPerThousand1D}</Text>
         </GridItem>
         {/* 7 day row */}
         <GridItem>
@@ -88,11 +88,11 @@ const ApyCalculatorModal: React.FC<ApyCalculatorModalProps> = ({
         </GridItem>
         <GridItem>
           <Text>
-            {apyModalRoi({ amountEarned: cidEarnedPerThousand7D, amountInvested: oneThousandDollarsWorthOfCid })}%
+            {apyModalRoi({ amountEarned: pidEarnedPerThousand7D, amountInvested: oneThousandDollarsWorthOfPid })}%
           </Text>
         </GridItem>
         <GridItem>
-          <Text>{cidEarnedPerThousand7D}</Text>
+          <Text>{pidEarnedPerThousand7D}</Text>
         </GridItem>
         {/* 30 day row */}
         <GridItem>
@@ -100,11 +100,11 @@ const ApyCalculatorModal: React.FC<ApyCalculatorModalProps> = ({
         </GridItem>
         <GridItem>
           <Text>
-            {apyModalRoi({ amountEarned: cidEarnedPerThousand30D, amountInvested: oneThousandDollarsWorthOfCid })}%
+            {apyModalRoi({ amountEarned: pidEarnedPerThousand30D, amountInvested: oneThousandDollarsWorthOfPid })}%
           </Text>
         </GridItem>
         <GridItem>
-          <Text>{cidEarnedPerThousand30D}</Text>
+          <Text>{pidEarnedPerThousand30D}</Text>
         </GridItem>
         {/* 365 day / APY row */}
         <GridItem>
@@ -112,11 +112,11 @@ const ApyCalculatorModal: React.FC<ApyCalculatorModalProps> = ({
         </GridItem>
         <GridItem>
           <Text>
-            {apyModalRoi({ amountEarned: cidEarnedPerThousand365D, amountInvested: oneThousandDollarsWorthOfCid })}%
+            {apyModalRoi({ amountEarned: pidEarnedPerThousand365D, amountInvested: oneThousandDollarsWorthOfPid })}%
           </Text>
         </GridItem>
         <GridItem>
-          <Text>{cidEarnedPerThousand365D}</Text>
+          <Text>{pidEarnedPerThousand365D}</Text>
         </GridItem>
       </Grid>
       <Description fontSize="12px" color="textSubtle">

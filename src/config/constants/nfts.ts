@@ -1,12 +1,12 @@
 import { Nft } from './types'
 
 export const RABBIT_MINTING_FARM_ADDRESS = ''
-export const CID_RABBITS_ADDRESS = ''
+export const PID_RABBITS_ADDRESS = ''
 
 const Nfts: Nft[] = [
   {
     name: 'Swapsies',
-    description: 'These bunnies love nothing more than swapping cid. Especially on BSC.',
+    description: 'These bunnies love nothing more than swapping pid. Especially on BSC.',
     originalImage: 'https://gateway.pinata.cloud/ipfs/QmXdHqg3nywpNJWDevJQPtkz93vpfoHcZWQovFz2nmtPf5/swapsies.png',
     previewImage: 'swapsies-preview.png',
     blurImage: 'swapsies-blur.png',

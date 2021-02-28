@@ -55,20 +55,20 @@ const ComingSoon = () => {
       <Content>
         <div>
           <Block>
-            <Title as="h2">{TranslateString(999, 'Coming Soon to CidFinance.')}</Title>
+            <Title as="h2">{TranslateString(999, 'Coming Soon to PidFinance.')}</Title>
             <Text mb={3}>
               {TranslateString(
                 504,
-                'You’ll pay for the new tokens using CID-BNB LP tokens, which means you need to stake equal amounts of CID and BNB in a liquidity pool to take part.',
+                'You’ll pay for the new tokens using PID-BNB LP tokens, which means you need to stake equal amounts of PID and BNB in a liquidity pool to take part.',
               )}
             </Text>
             <Text mb={3}>
               <LiquidityLink href="https://cheeseswap.app/#/add/ETH/0x2cc26dd730F548dc4ac291ae7D84a0C96980d2cB">
-                {TranslateString(506, 'Get CID-BNB LP >')}
+                {TranslateString(506, 'Get PID-BNB LP >')}
               </LiquidityLink>
             </Text>
             <Text mb={3}>
-              {TranslateString(508, 'The project gets the BNB, CidFinance burns the CID.')}
+              {TranslateString(508, 'The project gets the BNB, PidFinance burns the PID.')}
               <br />
               <strong>{TranslateString(510, 'You get the tokens.')}</strong>
             </Text>
@@ -79,7 +79,7 @@ const ComingSoon = () => {
             <Text mb={3}>
               {TranslateString(
                 514,
-                'Launch your project with CidFinance, Binance Smart Chain’s most-used AMM project and liquidity provider, to bring your token directly to the most active and rapidly growing community on BSC.',
+                'Launch your project with PidFinance, Binance Smart Chain’s most-used AMM project and liquidity provider, to bring your token directly to the most active and rapidly growing community on BSC.',
               )}
             </Text>
             <Button

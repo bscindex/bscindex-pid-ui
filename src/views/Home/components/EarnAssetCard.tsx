@@ -7,7 +7,7 @@ import pools from 'config/constants/pools'
 import { Pool } from 'state/types'
 
 const StyledFarmStakingCard = styled(Card)`
-  background: linear-gradient(#45D256,#379C93);
+  background: linear-gradient(#45d256, #379c93);
   margin-left: auto;
   margin-right: auto;
   width: 100%;
@@ -22,8 +22,8 @@ const CardMidContent = styled(Heading).attrs({ size: 'xl' })`
 const EarnAssetCard = () => {
   const latestPools: Pool[] = orderBy(pools, ['sortOrder', 'pid'], ['desc', 'desc']).slice(0, 2)
 
-  // Always include CID
-  const assets = ['CID', ...latestPools.map((pool) => pool.tokenName)].join(', ')
+  // Always include PID
+  const assets = ['PID', ...latestPools.map((pool) => pool.tokenName)].join(', ')
 
   return (
     <StyledFarmStakingCard>

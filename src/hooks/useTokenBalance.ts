@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react'
 import BigNumber from 'bignumber.js'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { provider } from 'web3-core'
-import cidABI from 'config/abi/cid.json'
+import pidABI from 'config/abi/pid.json'
 import { getContract } from 'utils/web3'
 import { getTokenBalance } from 'utils/erc20'
-import { getCidAddress } from 'utils/addressHelpers'
+import { getPidAddress } from 'utils/addressHelpers'
 import useRefresh from './useRefresh'
 
 const useTokenBalance = (tokenAddress: string) => {
@@ -33,8 +33,8 @@ export const useTotalSupply = () => {
 
   useEffect(() => {
     async function fetchTotalSupply() {
-      const cidContract = getContract(cidABI, getCidAddress())
-      const supply = await cidContract.methods.totalSupply().call()
+      const pidContract = getContract(pidABI, getPidAddress())
+      const supply = await pidContract.methods.totalSupply().call()
       setTotalSupply(new BigNumber(supply))
     }
 

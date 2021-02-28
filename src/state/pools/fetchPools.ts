@@ -1,6 +1,6 @@
 import poolsConfig from 'config/constants/pools'
-import csiChefABI from 'config/abi/csiChef.json'
-import cidABI from 'config/abi/cid.json'
+import psiChefABI from 'config/abi/psiChef.json'
+import pidABI from 'config/abi/pid.json'
 import wbnbABI from 'config/abi/weth.json'
 import { QuoteToken } from 'config/constants/types'
 import multicall from 'utils/multicall'
@@ -10,7 +10,7 @@ import BigNumber from 'bignumber.js'
 const CHAIN_ID = process.env.REACT_APP_CHAIN_ID
 
 export const fetchPoolsBlockLimits = async () => {
-  const poolsWithEnd = poolsConfig.filter((p) => p.csiId !== 0)
+  const poolsWithEnd = poolsConfig.filter((p) => p.psiId !== 0)
   const callsStartBlock = poolsWithEnd.map((poolConfig) => {
     return {
       address: poolConfig.contractAddress[CHAIN_ID],
@@ -24,14 +24,14 @@ export const fetchPoolsBlockLimits = async () => {
     }
   })
 
-  const starts = await multicall(csiChefABI, callsStartBlock)
-  const ends = await multicall(csiChefABI, callsEndBlock)
+  const starts = await multicall(psiChefABI, callsStartBlock)
+  const ends = await multicall(psiChefABI, callsEndBlock)
 
-  return poolsWithEnd.map((cidPoolConfig, index) => {
+  return poolsWithEnd.map((pidPoolConfig, index) => {
     const startBlock = starts[index]
     const endBlock = ends[index]
     return {
-      csiId: cidPoolConfig.csiId,
+      psiId: pidPoolConfig.psiId,
       startBlock: new BigNumber(startBlock).toJSON(),
       endBlock: new BigNumber(endBlock).toJSON(),
     }
@@ -58,16 +58,16 @@ export const fetchPoolsTotalStatking = async () => {
     }
   })
 
-  const nonBnbPoolsTotalStaked = await multicall(cidABI, callsNonBnbPools)
+  const nonBnbPoolsTotalStaked = await multicall(pidABI, callsNonBnbPools)
   const bnbPoolsTotalStaked = await multicall(wbnbABI, callsBnbPools)
 
   return [
     ...nonBnbPools.map((p, index) => ({
-      csiId: p.csiId,
+      psiId: p.psiId,
       totalStaked: new BigNumber(nonBnbPoolsTotalStaked[index]).toJSON(),
     })),
     ...bnbPool.map((p, index) => ({
-      csiId: p.csiId,
+      psiId: p.psiId,
       totalStaked: new BigNumber(bnbPoolsTotalStaked[index]).toJSON(),
     })),
   ]

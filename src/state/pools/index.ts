@@ -19,20 +19,20 @@ export const PoolsSlice = createSlice({
     setPoolsPublicData: (state, action) => {
       const livePoolsData: Pool[] = action.payload
       state.data = state.data.map((pool) => {
-        const livePoolData = livePoolsData.find((entry) => entry.csiId === pool.csiId)
+        const livePoolData = livePoolsData.find((entry) => entry.psiId === pool.psiId)
         return { ...pool, ...livePoolData }
       })
     },
     setPoolsUserData: (state, action) => {
       const userData = action.payload
       state.data = state.data.map((pool) => {
-        const userPoolData = userData.find((entry) => entry.csiId === pool.csiId)
+        const userPoolData = userData.find((entry) => entry.psiId === pool.psiId)
         return { ...pool, userData: userPoolData }
       })
     },
     updatePoolsUserData: (state, action) => {
-      const { field, value, csiId } = action.payload
-      const index = state.data.findIndex((p) => p.csiId === csiId)
+      const { field, value, psiId } = action.payload
+      const index = state.data.findIndex((p) => p.psiId === psiId)
       state.data[index] = { ...state.data[index], userData: { ...state.data[index].userData, [field]: value } }
     },
   },
@@ -47,8 +47,8 @@ export const fetchPoolsPublicDataAsync = () => async (dispatch) => {
   const totalStakings = await fetchPoolsTotalStatking()
 
   const liveData = poolsConfig.map((pool) => {
-    const blockLimit = blockLimits.find((entry) => entry.csiId === pool.csiId)
-    const totalStaking = totalStakings.find((entry) => entry.csiId === pool.csiId)
+    const blockLimit = blockLimits.find((entry) => entry.psiId === pool.psiId)
+    const totalStaking = totalStakings.find((entry) => entry.psiId === pool.psiId)
     return {
       ...blockLimit,
       ...totalStaking,
@@ -65,34 +65,34 @@ export const fetchPoolsUserDataAsync = (account) => async (dispatch) => {
   const pendingRewards = await fetchUserPendingRewards(account)
 
   const userData = poolsConfig.map((pool) => ({
-    csiId: pool.csiId,
-    allowance: allowances[pool.csiId],
-    stakingTokenBalance: stakingTokenBalances[pool.csiId],
-    stakedBalance: stakedBalances[pool.csiId],
-    pendingReward: pendingRewards[pool.csiId],
+    psiId: pool.psiId,
+    allowance: allowances[pool.psiId],
+    stakingTokenBalance: stakingTokenBalances[pool.psiId],
+    stakedBalance: stakedBalances[pool.psiId],
+    pendingReward: pendingRewards[pool.psiId],
   }))
 
   dispatch(setPoolsUserData(userData))
 }
 
-export const updateUserAllowance = (csiId: string, account: string) => async (dispatch) => {
+export const updateUserAllowance = (psiId: string, account: string) => async (dispatch) => {
   const allowances = await fetchPoolsAllowance(account)
-  dispatch(updatePoolsUserData({ csiId, field: 'allowance', value: allowances[csiId] }))
+  dispatch(updatePoolsUserData({ psiId, field: 'allowance', value: allowances[psiId] }))
 }
 
-export const updateUserBalance = (csiId: string, account: string) => async (dispatch) => {
+export const updateUserBalance = (psiId: string, account: string) => async (dispatch) => {
   const tokenBalances = await fetchUserBalances(account)
-  dispatch(updatePoolsUserData({ csiId, field: 'stakingTokenBalance', value: tokenBalances[csiId] }))
+  dispatch(updatePoolsUserData({ psiId, field: 'stakingTokenBalance', value: tokenBalances[psiId] }))
 }
 
-export const updateUserStakedBalance = (csiId: string, account: string) => async (dispatch) => {
+export const updateUserStakedBalance = (psiId: string, account: string) => async (dispatch) => {
   const stakedBalances = await fetchUserStakeBalances(account)
-  dispatch(updatePoolsUserData({ csiId, field: 'stakedBalance', value: stakedBalances[csiId] }))
+  dispatch(updatePoolsUserData({ psiId, field: 'stakedBalance', value: stakedBalances[psiId] }))
 }
 
-export const updateUserPendingReward = (csiId: string, account: string) => async (dispatch) => {
+export const updateUserPendingReward = (psiId: string, account: string) => async (dispatch) => {
   const pendingRewards = await fetchUserPendingRewards(account)
-  dispatch(updatePoolsUserData({ csiId, field: 'pendingReward', value: pendingRewards[csiId] }))
+  dispatch(updatePoolsUserData({ psiId, field: 'pendingReward', value: pendingRewards[psiId] }))
 }
 
 export default PoolsSlice.reducer

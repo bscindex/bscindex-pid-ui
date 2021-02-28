@@ -11,7 +11,7 @@ export interface Ifo {
   launchTime: string
   saleAmount: string
   raiseAmount: string
-  cidToBurn: string
+  pidToBurn: string
   projectSiteUrl: string
   currency: string
   currencyAddress: string
@@ -21,21 +21,21 @@ export interface Ifo {
 
 export enum QuoteToken {
   'BNB' = 'BNB',
-  'CID' = 'CID',
+  'PID' = 'PID',
   'CHS' = 'CHS',
   'USDT' = 'USDT',
   'BUSD' = 'BUSD',
   'HOTS' = 'HOTS',
   'KP3RB' = 'KP3RB',
-  'CSI' = 'CSI',
+  'PSI' = 'PSI',
   'DAI' = 'DAI',
   'ETH' = 'ETH',
   'USDC' = 'USDC',
   'CAKE' = 'CAKE',
   'XCHS' = 'XCHS',
-  'cCID' = 'cCID',
+  'cPID' = 'cPID',
   'BUTT' = 'BUTT',
-  'CHSBNB' = 'CHSBNB'
+  'CHSBNB' = 'CHSBNB',
 }
 
 export enum PoolCategory {
@@ -68,7 +68,7 @@ export interface FarmConfig {
 }
 
 export interface PoolConfig {
-  csiId: number
+  psiId: number
   image?: string
   tokenName: string
   earnToken: string

@@ -25,34 +25,34 @@ const BuyTicketModal: React.FC<BuyTicketModalProps> = ({ max, onDismiss }) => {
   }, [max])
 
   const maxTickets = useMemo(() => {
-     return parseInt(getFullDisplayBalance(max.div(new BigNumber(0.1))))
-   }, [max])
+    return parseInt(getFullDisplayBalance(max.div(new BigNumber(0.1))))
+  }, [max])
 
-   const handleChange = (e: React.FormEvent<HTMLInputElement>) => setVal(e.currentTarget.value)
+  const handleChange = (e: React.FormEvent<HTMLInputElement>) => setVal(e.currentTarget.value)
 
-   const { onMultiBuy } = useMultiBuyLottery()
-   const maxNumber = useMaxNumber()
-   const handleBuy = useCallback(async () => {
-     try {
-       setRequestedBuy(true)
-       const length = parseInt(val)
-       // @ts-ignore
-       // eslint-disable-next-line prefer-spread
-       const numbers = Array.apply(null, { length }).map(() => [
-         Math.floor(Math.random() * maxNumber) + 1,
-         Math.floor(Math.random() * maxNumber) + 1,
-         Math.floor(Math.random() * maxNumber) + 1,
-         Math.floor(Math.random() * maxNumber) + 1,
-       ])
-       const txHash = await onMultiBuy('0.1', numbers)
-       // user rejected tx or didn't go thru
-       if (txHash) {
-         setRequestedBuy(false)
-       }
-     } catch (e) {
-       console.error(e)
-     }
-   }, [onMultiBuy, setRequestedBuy, maxNumber, val])
+  const { onMultiBuy } = useMultiBuyLottery()
+  const maxNumber = useMaxNumber()
+  const handleBuy = useCallback(async () => {
+    try {
+      setRequestedBuy(true)
+      const length = parseInt(val)
+      // @ts-ignore
+      // eslint-disable-next-line prefer-spread
+      const numbers = Array.apply(null, { length }).map(() => [
+        Math.floor(Math.random() * maxNumber) + 1,
+        Math.floor(Math.random() * maxNumber) + 1,
+        Math.floor(Math.random() * maxNumber) + 1,
+        Math.floor(Math.random() * maxNumber) + 1,
+      ])
+      const txHash = await onMultiBuy('0.1', numbers)
+      // user rejected tx or didn't go thru
+      if (txHash) {
+        setRequestedBuy(false)
+      }
+    } catch (e) {
+      console.error(e)
+    }
+  }, [onMultiBuy, setRequestedBuy, maxNumber, val])
 
   const handleSelectMax = useCallback(() => {
     if (Number(maxTickets) > 100) {
@@ -62,7 +62,7 @@ const BuyTicketModal: React.FC<BuyTicketModalProps> = ({ max, onDismiss }) => {
     }
   }, [maxTickets])
 
-  const cidCosts = (amount: string): number => {
+  const pidCosts = (amount: string): number => {
     return +amount * 0.1
   }
   return (
@@ -73,20 +73,17 @@ const BuyTicketModal: React.FC<BuyTicketModalProps> = ({ max, onDismiss }) => {
         onChange={handleChange}
         max={fullBalance}
         symbol="PSLT Ticket"
-        availableSymbol="CID"
+        availableSymbol="PID"
       />
       <div>
-        <Tips>{TranslateString(456, 'Your amount must be a multiple of 0.1 CID')}</Tips>
-        <Tips>{TranslateString(458, '1 Ticket = 0.1 CID')}</Tips>
+        <Tips>{TranslateString(456, 'Your amount must be a multiple of 0.1 PID')}</Tips>
+        <Tips>{TranslateString(458, '1 Ticket = 0.1 PID')}</Tips>
       </div>
       <div>
         <Announce>
-          {TranslateString(
-            478,
-            'Ticket purchases are final. Your CID cannot be returned to you after buying tickets.',
-          )}
+          {TranslateString(478, 'Ticket purchases are final. Your PID cannot be returned to you after buying tickets.')}
         </Announce>
-        <Final>{TranslateString(460, `You will spend: ${cidCosts(val)} CID`)}</Final>
+        <Final>{TranslateString(460, `You will spend: ${pidCosts(val)} PID`)}</Final>
       </div>
       <ModalActions>
         <Button fullWidth variant="secondary" onClick={onDismiss}>

@@ -4,30 +4,30 @@ import { FarmConfig, QuoteToken } from './types'
 const farms: FarmConfig[] = [
   {
     pid: 0,
-    lpSymbol: 'CID',
+    lpSymbol: 'PID',
     lpAddresses: {
       97: '',
-      56: '0x93f44521A0b6dDE17E8C4BB8e85E8c215d2EEf0e',
+      56: '0xC8C7EcE03492cC1D99b1Cc2BB588254b15dE45A5',
     },
-    tokenSymbol: 'CSI',
+    tokenSymbol: 'PSI',
     tokenAddresses: {
       97: '',
-      56: '0x2061A33ffc1aBAA10204Ab97771809340d5fE942',
+      56: '0x24835Eb32cE4B91916013A5399c5565F26a92546',
     },
     quoteTokenSymbol: QuoteToken.BNB,
     quoteTokenAdresses: contracts.wbnb,
   },
   {
     pid: 1,
-    lpSymbol: 'CID-BNB LP',
+    lpSymbol: 'PID-BNB LP',
     lpAddresses: {
       97: '',
-      56: '0x9Aa251cFaBdA84F750DDE8A227F9240aE11E9f8C',
+      56: '0x96bae269454f7d9c0A5E032290abA3f36355579b',
     },
-    tokenSymbol: 'CID',
+    tokenSymbol: 'PID',
     tokenAddresses: {
       97: '',
-      56: '0x93f44521A0b6dDE17E8C4BB8e85E8c215d2EEf0e',
+      56: '0xC8C7EcE03492cC1D99b1Cc2BB588254b15dE45A5',
     },
     quoteTokenSymbol: QuoteToken.BNB,
     quoteTokenAdresses: contracts.wbnb,
@@ -61,7 +61,7 @@ const farms: FarmConfig[] = [
     },
     quoteTokenSymbol: QuoteToken.BNB,
     quoteTokenAdresses: contracts.wbnb,
-  }
+  },
 ]
 
 export default farms

@@ -104,7 +104,7 @@ const CardFooter: React.FC<Props> = ({
           <Row style={{ marginBottom: '4px' }}>
             <FlexFull>
               <Label>
-                <span role="img" aria-label="csi">
+                <span role="img" aria-label="psi">
                   {' '}
                 </span>
                 {TranslateString(408, 'Total Stake of')} {tokenName}:
