@@ -4,7 +4,7 @@ import BigNumber from 'bignumber.js'
 import styled from 'styled-components'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { Heading } from '@bscindexpid/uikit'
-import { BLOCKS_PER_YEAR, PID_PER_BLOCK } from 'config'
+import { BLOCKS_PER_YEAR, PKID_PER_BLOCK } from 'config'
 import orderBy from 'lodash/orderBy'
 import partition from 'lodash/partition'
 import useI18n from 'hooks/useI18n'
@@ -53,7 +53,7 @@ const Farm: React.FC = () => {
     )
 
     const totalRewardPricePerYear = rewardTokenPriceInBNB
-      .times(PID_PER_BLOCK)
+      .times(PKID_PER_BLOCK)
       .times(pool.tokenPerBlock)
       .times(BLOCKS_PER_YEAR)
     const totalStakingTokenInPool = stakingTokenPriceInBNB.times(getBalanceNumber(pool.totalStaked))
@@ -61,7 +61,7 @@ const Farm: React.FC = () => {
 
     return {
       ...pool,
-      isFinished: pool.psiId === 0 ? false : pool.isFinished || block > pool.endBlock,
+      isFinished: pool.pksiId === 0 ? false : pool.isFinished || block > pool.endBlock,
       apy,
     }
   })
@@ -75,17 +75,17 @@ const Farm: React.FC = () => {
           <Heading as="h1" size="xxl" mb="16px">
             {TranslateString(282, 'SMART Pool')}
           </Heading>
-          <Heading as="h4" size="md" mb="14px">
-            {TranslateString(282, 'PID Smart Staking Pool')}
+          <Heading as="h4" size="xl" mb="14px">
+            {TranslateString(282, 'PKID Smart Staking Pool')}
           </Heading>
           <Heading as="h4" size="md" mb="14px">
             {TranslateString(
               282,
-              'CAUTION!!! PLEASE DO NOT SELL / MOVE YOUR EARNED #PSI TOKEN. YOUR TRANSACTION MAY REVERT THEN.',
+              'CAUTION!!! PLEASE DO NOT SELL / MOVE YOUR EARNED #PKSI TOKEN. YOUR TRANSACTION MAY REVERT THEN.',
             )}
           </Heading>
           <ul>
-            <li>{TranslateString(580, 'Stake PID or supported tokens to earn')}</li>
+            <li>{TranslateString(580, 'Stake PKID or supported tokens to earn')}</li>
             <li>{TranslateString(580, 'Any listed NEW BEP20 tokens.')}</li>
             <li>{TranslateString(404, 'You can unstake at any time..')}</li>
             <li>{TranslateString(406, 'Rewards are calculated per block.')}</li>
@@ -106,14 +106,14 @@ const Farm: React.FC = () => {
         <Route exact path={`${path}`}>
           <>
             {orderBy(openPools, ['sortOrder']).map((pool) => (
-              <PoolCard key={pool.psiId} pool={pool} />
+              <PoolCard key={pool.pksiId} pool={pool} />
             ))}
             {/*  <Coming /> */}
           </>
         </Route>
         <Route path={`${path}/history`}>
           {orderBy(finishedPools, ['sortOrder']).map((pool) => (
-            <PoolCard key={pool.psiId} pool={pool} />
+            <PoolCard key={pool.pksiId} pool={pool} />
           ))}
         </Route>
       </FlexLayout>

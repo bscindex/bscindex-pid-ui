@@ -11,7 +11,7 @@ export interface Ifo {
   launchTime: string
   saleAmount: string
   raiseAmount: string
-  pidToBurn: string
+  pkidToBurn: string
   projectSiteUrl: string
   currency: string
   currencyAddress: string
@@ -21,19 +21,19 @@ export interface Ifo {
 
 export enum QuoteToken {
   'BNB' = 'BNB',
-  'PID' = 'PID',
+  'PKID' = 'PKID',
   'CHS' = 'CHS',
   'USDT' = 'USDT',
   'BUSD' = 'BUSD',
   'HOTS' = 'HOTS',
   'KP3RB' = 'KP3RB',
-  'PSI' = 'PSI',
+  'PKSI' = 'PKSI',
   'DAI' = 'DAI',
   'ETH' = 'ETH',
   'USDC' = 'USDC',
   'CAKE' = 'CAKE',
   'XCHS' = 'XCHS',
-  'cPID' = 'cPID',
+  'cPKID' = 'cPKID',
   'BUTT' = 'BUTT',
   'CHSBNB' = 'CHSBNB',
 }
@@ -68,7 +68,7 @@ export interface FarmConfig {
 }
 
 export interface PoolConfig {
-  psiId: number
+  pksiId: number
   image?: string
   tokenName: string
   earnToken: string

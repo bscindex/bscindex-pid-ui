@@ -18,7 +18,7 @@ const ActionLink = styled.a`
   font-size: 14px;
 `
 
-const OldPsiTitle: React.FC<Props> = ({ hasBalance = false }) => {
+const OldPksiTitle: React.FC<Props> = ({ hasBalance = false }) => {
   if (hasBalance) {
     return (
       <div>
@@ -37,4 +37,4 @@ const OldPsiTitle: React.FC<Props> = ({ hasBalance = false }) => {
   )
 }
 
-export default OldPsiTitle
+export default OldPksiTitle

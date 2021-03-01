@@ -25,8 +25,8 @@ export const stake = async (masterChefContract, pid, amount, account) => {
     })
 }
 
-export const psiStake = async (psiChefContract, amount, account) => {
-  return psiChefContract.methods
+export const pksiStake = async (pksiChefContract, amount, account) => {
+  return pksiChefContract.methods
     .deposit(new BigNumber(amount).times(new BigNumber(10).pow(18)).toString())
     .send({ from: account })
     .on('transactionHash', (tx) => {
@@ -34,8 +34,8 @@ export const psiStake = async (psiChefContract, amount, account) => {
     })
 }
 
-export const psiStakeBnb = async (psiChefContract, amount, account) => {
-  return psiChefContract.methods
+export const pksiStakeBnb = async (pksiChefContract, amount, account) => {
+  return pksiChefContract.methods
     .deposit()
     .send({ from: account, value: new BigNumber(amount).times(new BigNumber(10).pow(18)).toString() })
     .on('transactionHash', (tx) => {
@@ -60,24 +60,24 @@ export const unstake = async (masterChefContract, pid, amount, account) => {
     })
 }
 
-export const psiUnstake = async (psiChefContract, amount, account) => {
-  if (psiChefContract.options.address === '0xB0953765fC1A2a25e8DFBe7c01245132c800d673') {
-    return psiChefContract.methods
+export const pksiUnstake = async (pksiChefContract, amount, account) => {
+  if (pksiChefContract.options.address === '0xB0953765fC1A2a25e8DFBe7c01245132c800d673') {
+    return pksiChefContract.methods
       .emergencyWithdraw()
       .send({ from: account })
       .on('transactionHash', (tx) => {
         return tx.transactionHash
       })
   }
-  if (psiChefContract.options.address === '0xB0953765fC1A2a25e8DFBe7c01245132c800d673') {
-    return psiChefContract.methods
+  if (pksiChefContract.options.address === '0xB0953765fC1A2a25e8DFBe7c01245132c800d673') {
+    return pksiChefContract.methods
       .emergencyWithdraw()
       .send({ from: account })
       .on('transactionHash', (tx) => {
         return tx.transactionHash
       })
   }
-  return psiChefContract.methods
+  return pksiChefContract.methods
     .withdraw(new BigNumber(amount).times(new BigNumber(10).pow(18)).toString())
     .send({ from: account })
     .on('transactionHash', (tx) => {
@@ -85,8 +85,8 @@ export const psiUnstake = async (psiChefContract, amount, account) => {
     })
 }
 
-export const psiEmegencyUnstake = async (psiChefContract, amount, account) => {
-  return psiChefContract.methods
+export const pksiEmegencyUnstake = async (pksiChefContract, amount, account) => {
+  return pksiChefContract.methods
     .emergencyWithdraw()
     .send({ from: account })
     .on('transactionHash', (tx) => {
@@ -111,8 +111,8 @@ export const harvest = async (masterChefContract, pid, account) => {
     })
 }
 
-export const psihHarvest = async (psiChefContract, account) => {
-  return psiChefContract.methods
+export const pksihHarvest = async (pksiChefContract, account) => {
+  return pksiChefContract.methods
     .deposit('0')
     .send({ from: account })
     .on('transactionHash', (tx) => {
@@ -120,8 +120,8 @@ export const psihHarvest = async (psiChefContract, account) => {
     })
 }
 
-export const psihHarvestBnb = async (psiChefContract, account) => {
-  return psiChefContract.methods
+export const pksihHarvestBnb = async (pksiChefContract, account) => {
+  return pksiChefContract.methods
     .deposit()
     .send({ from: account, value: new BigNumber(0) })
     .on('transactionHash', (tx) => {

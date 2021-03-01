@@ -6,7 +6,7 @@ import { Link as ReactRouterLink } from 'react-router-dom'
 import { Button, Flex, Image, Link } from '@bscindexpid/uikit'
 import { communityFarms } from 'config/constants'
 import { Farm } from 'state/types'
-import { usePriceBnbBusd, usePricePidBusd } from 'state/hooks'
+import { usePriceBnbBusd, usePricePkidBusd } from 'state/hooks'
 import useI18n from 'hooks/useI18n'
 import { CommunityTag, CoreTag } from 'components/Tags'
 import UnlockButton from 'components/UnlockButton'
@@ -110,18 +110,18 @@ const FCard = styled.div`
 interface FarmCardProps {
   farm: FarmWithStakedValue
   removed: boolean
-  pidPrice?: number
+  pkidPrice?: number
 }
 
 const FarmCard: React.FC<FarmCardProps> = ({ farm, removed }) => {
   const TranslateString = useI18n()
-  const pidPrice = usePricePidBusd()
+  const pkidPrice = usePricePkidBusd()
   const bnbPrice = usePriceBnbBusd()
   const { account } = useWallet()
 
   const isCommunityFarm = communityFarms.includes(farm.tokenSymbol)
-  // We assume the token name is coin pair + lp e.g. PID-BNB LP, LINK-BNB LP,
-  // NAR-PID LP. The images should be pid-bnb.svg, link-bnb.svg, nar-pid.svg
+  // We assume the token name is coin pair + lp e.g. PKID-BNB LP, LINK-BNB LP,
+  // NAR-PKID LP. The images should be pkid-bnb.svg, link-bnb.svg, nar-pkid.svg
   const farmImage = farm.lpSymbol.split(' ')[0].toLocaleLowerCase()
 
   const totalValue: BigNumber = useMemo(() => {
@@ -131,11 +131,11 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed }) => {
     if (farm.quoteTokenSymbol === QuoteToken.BNB) {
       return bnbPrice.times(farm.lpTotalInQuoteToken)
     }
-    if (farm.quoteTokenSymbol === QuoteToken.PID) {
-      return pidPrice.times(farm.lpTotalInQuoteToken)
+    if (farm.quoteTokenSymbol === QuoteToken.PKID) {
+      return pkidPrice.times(farm.lpTotalInQuoteToken)
     }
     return farm.lpTotalInQuoteToken
-  }, [bnbPrice, pidPrice, farm.lpTotalInQuoteToken, farm.quoteTokenSymbol])
+  }, [bnbPrice, pkidPrice, farm.lpTotalInQuoteToken, farm.quoteTokenSymbol])
 
   const totalValueFormated = totalValue
     ? `$${Number(totalValue).toLocaleString(undefined, { maximumFractionDigits: 0 })}`
@@ -143,7 +143,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed }) => {
 
   return (
     <FCard>
-      {farm.tokenSymbol === 'PID' && <StyledCardAccent />}
+      {farm.tokenSymbol === 'PKID' && <StyledCardAccent />}
       <CardImage>
         <Flex flexDirection="column" alignItems="flex-start">
           <Multiplier>{farm.multiplier}</Multiplier>
@@ -153,11 +153,11 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed }) => {
       </CardImage>
       <Label>
         <span>{TranslateString(316, 'Deposit')}</span>
-        <span className="right">{farm.lpSymbol && farm.lpSymbol.toUpperCase().replace('PIDFINANCE', '')}</span>
+        <span className="right">{farm.lpSymbol && farm.lpSymbol.toUpperCase().replace('PKIDFINANCE', '')}</span>
       </Label>
       <Label>
         <span>{TranslateString(318, 'Earn')}</span>
-        <span className="right">{farm.dual ? farm.dual.earnLabel : 'PID'}</span>
+        <span className="right">{farm.dual ? farm.dual.earnLabel : 'PKID'}</span>
       </Label>
       {!removed && (
         <Label>

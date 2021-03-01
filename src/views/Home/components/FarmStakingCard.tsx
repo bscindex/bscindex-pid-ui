@@ -6,11 +6,11 @@ import useI18n from 'hooks/useI18n'
 import { useAllHarvest } from 'hooks/useHarvest'
 import useFarmsWithBalance from 'hooks/useFarmsWithBalance'
 import UnlockButton from 'components/UnlockButton'
-import PidHarvestBalance from './PidHarvestBalance'
-import PidWalletBalance from './PidWalletBalance'
+import PkidHarvestBalance from './PkidHarvestBalance'
+import PkidWalletBalance from './PkidWalletBalance'
 
 const StyledFarmStakingCard = styled(Card)`
-  background-image: url('/images/pid-bg.svg');
+  background-image: url('/images/pkid-bg.svg');
   background-repeat: no-repeat;
   background-position: top right;
   min-height: 376px;
@@ -59,14 +59,14 @@ const FarmedStakingCard = () => {
         <Heading size="xl" mb="24px">
           {TranslateString(542, 'Farms & Staking')}
         </Heading>
-        <CardImage src="/images/pid.svg" alt="pid logo" width={64} height={64} />
+        <CardImage src="/images/pkid.svg" alt="pkid logo" width={64} height={64} />
         <Block>
-          <PidHarvestBalance />
-          <Label>{TranslateString(544, 'PID to Harvest')}</Label>
+          <PkidHarvestBalance />
+          <Label>{TranslateString(544, 'PKID to Harvest')}</Label>
         </Block>
         <Block>
-          <PidWalletBalance />
-          <Label>{TranslateString(546, 'PID in Wallet')}</Label>
+          <PkidWalletBalance />
+          <Label>{TranslateString(546, 'PKID in Wallet')}</Label>
         </Block>
         <Actions>
           {account ? (
@@ -77,7 +77,7 @@ const FarmedStakingCard = () => {
               fullWidth
             >
               {pendingTx
-                ? TranslateString(548, 'Collecting PID')
+                ? TranslateString(548, 'Collecting PKID')
                 : TranslateString(999, `Harvest all (${balancesWithValue.length})`)}
             </Button>
           ) : (

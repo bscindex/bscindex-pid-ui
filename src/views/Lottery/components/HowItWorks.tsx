@@ -28,14 +28,14 @@ const HowItWorks = () => {
 
   return (
     <LayoutWrapper>
-      <StyledImage src="/images/pid-lottery-bg.png" alt="lottery pid" width={163} height={140} />
+      <StyledImage src="/images/pkid-lottery-bg.png" alt="lottery pkid" width={163} height={140} />
       <StyledHeading size="lg" as="h3" color="secondary">
         {TranslateString(999, 'How it works')}
       </StyledHeading>
       <Text fontSize="16px">
         {TranslateString(
           999,
-          'Spend PID to buy tickets, contributing to the lottery pot. Win prizes if 2, 3, or 4 of your ticket numbers match the winning numbers and their exact order!',
+          'Spend PKID to buy tickets, contributing to the lottery pot. Win prizes if 2, 3, or 4 of your ticket numbers match the winning numbers and their exact order!',
         )}
       </Text>
       <StyledLink href="#">Read more</StyledLink>

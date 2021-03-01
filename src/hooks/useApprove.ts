@@ -5,7 +5,7 @@ import { ethers } from 'ethers'
 import { useDispatch } from 'react-redux'
 import { updateUserAllowance, fetchFarmUserDataAsync } from 'state/actions'
 import { approve } from 'utils/callHelpers'
-import { useMasterchef, usePid, usePsiChef, useLottery } from './useContract'
+import { useMasterchef, usePkid, usePksiChef, useLottery } from './useContract'
 
 // Approve a Farm
 export const useApprove = (lpContract: Contract) => {
@@ -27,20 +27,20 @@ export const useApprove = (lpContract: Contract) => {
 }
 
 // Approve a Pool
-export const usePsiApprove = (lpContract: Contract, psiId) => {
+export const usePksiApprove = (lpContract: Contract, pksiId) => {
   const dispatch = useDispatch()
   const { account }: { account: string } = useWallet()
-  const psiChefContract = usePsiChef(psiId)
+  const pksiChefContract = usePksiChef(pksiId)
 
   const handleApprove = useCallback(async () => {
     try {
-      const tx = await approve(lpContract, psiChefContract, account)
-      dispatch(updateUserAllowance(psiId, account))
+      const tx = await approve(lpContract, pksiChefContract, account)
+      dispatch(updateUserAllowance(pksiId, account))
       return tx
     } catch (e) {
       return false
     }
-  }, [account, dispatch, lpContract, psiChefContract, psiId])
+  }, [account, dispatch, lpContract, pksiChefContract, pksiId])
 
   return { onApprove: handleApprove }
 }
@@ -48,17 +48,17 @@ export const usePsiApprove = (lpContract: Contract, psiId) => {
 // Approve the lottery
 export const useLotteryApprove = () => {
   const { account }: { account: string } = useWallet()
-  const pidContract = usePid()
+  const pkidContract = usePkid()
   const lotteryContract = useLottery()
 
   const handleApprove = useCallback(async () => {
     try {
-      const tx = await approve(pidContract, lotteryContract, account)
+      const tx = await approve(pkidContract, lotteryContract, account)
       return tx
     } catch (e) {
       return false
     }
-  }, [account, pidContract, lotteryContract])
+  }, [account, pkidContract, lotteryContract])
 
   return { onApprove: handleApprove }
 }

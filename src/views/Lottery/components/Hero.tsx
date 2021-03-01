@@ -70,8 +70,8 @@ const Hero = () => {
     <StyledHero>
       <StyledContainer>
         <LeftWrapper>
-          <Title>{TranslateString(999, 'The PID Lottery')}</Title>
-          <Blurb>{TranslateString(999, 'Buy tickets with PID')}</Blurb>
+          <Title>{TranslateString(999, 'The PKID Lottery')}</Title>
+          <Blurb>{TranslateString(999, 'Buy tickets with PKID')}</Blurb>
           <Blurb>{TranslateString(999, 'Win if 2, 3, or 4 of your ticket numbers match!')}</Blurb>
         </LeftWrapper>
         <RightWrapper>

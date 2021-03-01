@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react'
 import styled from 'styled-components'
 import { Heading, Card, CardBody, Button, useModal } from '@bscindexpid/uikit'
-import { getPidAddress } from 'utils/addressHelpers'
+import { getPkidAddress } from 'utils/addressHelpers'
 import { getBalanceNumber } from 'utils/formatBalance'
 import useI18n from 'hooks/useI18n'
 // import useGetLotteryHasDrawn from 'hooks/useGetLotteryHasDrawn'
@@ -10,7 +10,7 @@ import { useMultiClaimLottery } from 'hooks/useBuyLottery'
 import { useTotalClaim } from 'hooks/useTickets'
 
 import BuyModal from 'views/Lottery/components/TicketCard/BuyTicketModal'
-import PidWinnings from './PidWinnings'
+import PkidWinnings from './PkidWinnings'
 import LotteryJackpot from './LotteryJackpot'
 
 const StyledLotteryCard = styled(Card)`
@@ -44,7 +44,7 @@ const FarmedStakingCard = () => {
   const { claimAmount } = useTotalClaim()
   const { onMultiClaim } = useMultiClaimLottery()
 
-  const pidBalance = useTokenBalance(getPidAddress())
+  const pkidBalance = useTokenBalance(getPkidAddress())
 
   const handleClaim = useCallback(async () => {
     try {
@@ -59,18 +59,18 @@ const FarmedStakingCard = () => {
     }
   }, [onMultiClaim, setRequestedClaim])
 
-  //  const [onPresentBuy] = useModal(<BuyModal max={pidBalance} tokenName="PID" />)
+  //  const [onPresentBuy] = useModal(<BuyModal max={pkidBalance} tokenName="PKID" />)
 
   return (
     <StyledLotteryCard>
       <CardBody>
         <Heading size="xl" mb="24px">
-          {TranslateString(550, 'PID Lottery Desk')}
+          {TranslateString(550, 'PKID Lottery Desk')}
         </Heading>
-        <CardImage src="/images/ticket.svg" alt="Pid ticket logo" width={64} height={64} />
+        <CardImage src="/images/ticket.svg" alt="Pkid ticket logo" width={64} height={64} />
         <Block>
-          <PidWinnings />
-          <Label>{TranslateString(552, 'PID to Collect')}</Label>
+          <PkidWinnings />
+          <Label>{TranslateString(552, 'PKID to Collect')}</Label>
         </Block>
         <Block>
           <LotteryJackpot />

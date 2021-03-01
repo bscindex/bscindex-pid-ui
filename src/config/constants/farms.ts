@@ -4,30 +4,30 @@ import { FarmConfig, QuoteToken } from './types'
 const farms: FarmConfig[] = [
   {
     pid: 0,
-    lpSymbol: 'PID',
+    lpSymbol: 'PKID',
     lpAddresses: {
       97: '',
-      56: '0xC8C7EcE03492cC1D99b1Cc2BB588254b15dE45A5',
+      56: '0x0Db5591EA716d2495860E1dAa47114ca416F6055',
     },
-    tokenSymbol: 'PSI',
+    tokenSymbol: 'PKSI',
     tokenAddresses: {
       97: '',
-      56: '0x24835Eb32cE4B91916013A5399c5565F26a92546',
+      56: '0xE8dC20d6C96d1942C266ec674fe330B0Ec261c9f',
     },
     quoteTokenSymbol: QuoteToken.BNB,
     quoteTokenAdresses: contracts.wbnb,
   },
   {
     pid: 1,
-    lpSymbol: 'PID-BNB LP',
+    lpSymbol: 'PKID-BNB LP',
     lpAddresses: {
       97: '',
-      56: '0x96bae269454f7d9c0A5E032290abA3f36355579b',
+      56: '0x93289E37637055b4023Eb3e5CfE4b03f9D8F4785',
     },
-    tokenSymbol: 'PID',
+    tokenSymbol: 'PKID',
     tokenAddresses: {
       97: '',
-      56: '0xC8C7EcE03492cC1D99b1Cc2BB588254b15dE45A5',
+      56: '0x0Db5591EA716d2495860E1dAa47114ca416F6055',
     },
     quoteTokenSymbol: QuoteToken.BNB,
     quoteTokenAdresses: contracts.wbnb,

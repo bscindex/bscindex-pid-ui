@@ -7,8 +7,8 @@ import {
   updateUserBalance,
   updateUserPendingReward,
 } from 'state/actions'
-import { unstake, psiUnstake, psiEmegencyUnstake } from 'utils/callHelpers'
-import { useMasterchef, usePsiChef } from './useContract'
+import { unstake, pksiUnstake, pksiEmegencyUnstake } from 'utils/callHelpers'
+import { useMasterchef, usePksiChef } from './useContract'
 
 const useUnstake = (pid: number) => {
   const dispatch = useDispatch()
@@ -27,32 +27,32 @@ const useUnstake = (pid: number) => {
   return { onUnstake: handleUnstake }
 }
 
-const PSIIDS = [1]
+const PKSIIDS = [1]
 
-export const usePsiUnstake = (psiId) => {
+export const usePksiUnstake = (pksiId) => {
   const dispatch = useDispatch()
   const { account } = useWallet()
   const masterChefContract = useMasterchef()
-  const psiChefContract = usePsiChef(psiId)
-  const isOldPsi = PSIIDS.includes(psiId)
+  const pksiChefContract = usePksiChef(pksiId)
+  const isOldPksi = PKSIIDS.includes(pksiId)
 
   const handleUnstake = useCallback(
     async (amount: string) => {
-      if (psiId === 0) {
+      if (pksiId === 0) {
         const txHash = await unstake(masterChefContract, 0, amount, account)
         console.info(txHash)
-      } else if (isOldPsi) {
-        const txHash = await psiEmegencyUnstake(psiChefContract, amount, account)
+      } else if (isOldPksi) {
+        const txHash = await pksiEmegencyUnstake(pksiChefContract, amount, account)
         console.info(txHash)
       } else {
-        const txHash = await psiUnstake(psiChefContract, amount, account)
+        const txHash = await pksiUnstake(pksiChefContract, amount, account)
         console.info(txHash)
       }
-      dispatch(updateUserStakedBalance(psiId, account))
-      dispatch(updateUserBalance(psiId, account))
-      dispatch(updateUserPendingReward(psiId, account))
+      dispatch(updateUserStakedBalance(pksiId, account))
+      dispatch(updateUserBalance(pksiId, account))
+      dispatch(updateUserPendingReward(pksiId, account))
     },
-    [account, dispatch, isOldPsi, masterChefContract, psiChefContract, psiId],
+    [account, dispatch, isOldPksi, masterChefContract, pksiChefContract, pksiId],
   )
 
   return { onUnstake: handleUnstake }

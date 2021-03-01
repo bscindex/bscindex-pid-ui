@@ -411,7 +411,7 @@
     "inputs": [
       {
         "internalType": "contract IERC20",
-        "name": "_pid",
+        "name": "_pkid",
         "type": "address"
       },
       {
@@ -580,7 +580,7 @@
   },
   {
     "inputs": [],
-    "name": "pid",
+    "name": "pkid",
     "outputs": [
       {
         "internalType": "contract IERC20",

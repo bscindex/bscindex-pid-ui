@@ -5,8 +5,8 @@ BigNumber.config({
   DECIMAL_PLACES: 80,
 })
 
-export const PID_PER_BLOCK = new BigNumber(0.02)
+export const PKID_PER_BLOCK = new BigNumber(0.02)
 export const BLOCKS_PER_YEAR = new BigNumber(10512000)
 export const BSC_BLOCK_TIME = 3
 
-export const PID_POOL_PID = 1
+export const PKID_POOL_PID = 1

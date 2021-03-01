@@ -16,14 +16,14 @@ const StyledFarmStakingCard = styled(Card)`
     max-width: none;
   }
 `
-const CardMidContent = styled(Heading).attrs({ size: 'xl' })`
-  line-height: 44px;
+const CardMidContent = styled(Heading).attrs({ size: 'md' })`
+  line-height: 30px;
 `
 const EarnAssetCard = () => {
   const latestPools: Pool[] = orderBy(pools, ['sortOrder', 'pid'], ['desc', 'desc']).slice(0, 2)
 
-  // Always include PID
-  const assets = ['PID', ...latestPools.map((pool) => pool.tokenName)].join(', ')
+  // Always include PKID
+  const assets = ['PKID', ...latestPools.map((pool) => pool.tokenName)].join(', ')
 
   return (
     <StyledFarmStakingCard>

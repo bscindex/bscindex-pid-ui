@@ -6,7 +6,7 @@ import useI18n from 'hooks/useI18n'
 import BigNumber from 'bignumber.js'
 import { QuoteToken } from 'config/constants/types'
 import { useFarms, usePriceBnbBusd } from 'state/hooks'
-import { BLOCKS_PER_YEAR, PID_PER_BLOCK, PID_POOL_PID } from 'config'
+import { BLOCKS_PER_YEAR, PKID_PER_BLOCK, PKID_POOL_PID } from 'config'
 
 const StyledFarmStakingCard = styled(Card)`
   margin-left: auto;
@@ -38,24 +38,24 @@ const EarnAPYCard = () => {
 
   const calculateAPY = useCallback(
     (farmsToDisplay) => {
-      const pidPriceVsBNB = new BigNumber(farmsLP.find((farm) => farm.pid === PID_POOL_PID)?.tokenPriceVsQuote || 0)
+      const pkidPriceVsBNB = new BigNumber(farmsLP.find((farm) => farm.pid === PKID_POOL_PID)?.tokenPriceVsQuote || 0)
 
       farmsToDisplay.map((farm) => {
         if (!farm.tokenAmount || !farm.lpTotalInQuoteToken || !farm.lpTotalInQuoteToken) {
           return farm
         }
-        const pidRewardPerBlock = PID_PER_BLOCK.times(farm.poolWeight)
-        const pidRewardPerYear = pidRewardPerBlock.times(BLOCKS_PER_YEAR)
+        const pkidRewardPerBlock = PKID_PER_BLOCK.times(farm.poolWeight)
+        const pkidRewardPerYear = pkidRewardPerBlock.times(BLOCKS_PER_YEAR)
 
-        let apy = pidPriceVsBNB.times(pidRewardPerYear).div(farm.lpTotalInQuoteToken)
+        let apy = pkidPriceVsBNB.times(pkidRewardPerYear).div(farm.lpTotalInQuoteToken)
 
         if (farm.quoteTokenSymbol === QuoteToken.BUSD) {
-          apy = pidPriceVsBNB.times(pidRewardPerYear).div(farm.lpTotalInQuoteToken).times(bnbPrice)
-        } else if (farm.quoteTokenSymbol === QuoteToken.PID) {
-          apy = pidRewardPerYear.div(farm.lpTotalInQuoteToken)
+          apy = pkidPriceVsBNB.times(pkidRewardPerYear).div(farm.lpTotalInQuoteToken).times(bnbPrice)
+        } else if (farm.quoteTokenSymbol === QuoteToken.PKID) {
+          apy = pkidRewardPerYear.div(farm.lpTotalInQuoteToken)
         } else if (farm.dual) {
-          const pidApy =
-            farm && pidPriceVsBNB.times(pidRewardPerBlock).times(BLOCKS_PER_YEAR).div(farm.lpTotalInQuoteToken)
+          const pkidApy =
+            farm && pkidPriceVsBNB.times(pkidRewardPerBlock).times(BLOCKS_PER_YEAR).div(farm.lpTotalInQuoteToken)
           const dualApy =
             farm.tokenPriceVsQuote &&
             new BigNumber(farm.tokenPriceVsQuote)
@@ -63,7 +63,7 @@ const EarnAPYCard = () => {
               .times(BLOCKS_PER_YEAR)
               .div(farm.lpTotalInQuoteToken)
 
-          apy = pidApy && dualApy && pidApy.plus(dualApy)
+          apy = pkidApy && dualApy && pkidApy.plus(dualApy)
         }
 
         if (maxAPY.current < apy.toNumber()) maxAPY.current = apy.toNumber()

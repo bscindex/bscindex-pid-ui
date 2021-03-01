@@ -1,1 +1,1 @@
-export { default } from './Psi'
+export { default } from './Pksi'

@@ -9,7 +9,7 @@ export interface IfoCardDetailsProps {
   launchTime: string
   saleAmount: string
   raiseAmount: string
-  pidToBurn: string
+  pkidToBurn: string
   projectSiteUrl: string
   raisingAmount: BigNumber
   totalAmount: BigNumber
@@ -34,7 +34,7 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({
   launchTime,
   saleAmount,
   raiseAmount,
-  pidToBurn,
+  pkidToBurn,
   projectSiteUrl,
   raisingAmount,
   totalAmount,
@@ -68,8 +68,8 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({
           <Text>{raiseAmount}</Text>
         </Item>
         <Item>
-          <Display>{TranslateString(586, 'PID to burn (USD)')}</Display>
-          <Text>{pidToBurn}</Text>
+          <Display>{TranslateString(586, 'PKID to burn (USD)')}</Display>
+          <Text>{pkidToBurn}</Text>
         </Item>
         <Item>
           <Display>{TranslateString(999, 'Total raised (% of target)')}</Display>

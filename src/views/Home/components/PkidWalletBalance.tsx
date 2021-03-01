@@ -3,13 +3,13 @@ import { Text } from '@bscindexpid/uikit'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import useTokenBalance from 'hooks/useTokenBalance'
 import useI18n from 'hooks/useI18n'
-import { getPidAddress } from 'utils/addressHelpers'
+import { getPkidAddress } from 'utils/addressHelpers'
 import { getBalanceNumber } from 'utils/formatBalance'
 import CardValue from './CardValue'
 
-const PidWalletBalance = () => {
+const PkidWalletBalance = () => {
   const TranslateString = useI18n()
-  const pidBalance = useTokenBalance(getPidAddress())
+  const pkidBalance = useTokenBalance(getPkidAddress())
   const { account } = useWallet()
 
   if (!account) {
@@ -20,7 +20,7 @@ const PidWalletBalance = () => {
     )
   }
 
-  return <CardValue value={getBalanceNumber(pidBalance)} fontSize="24px" />
+  return <CardValue value={getBalanceNumber(pkidBalance)} fontSize="24px" />
 }
 
-export default PidWalletBalance
+export default PkidWalletBalance

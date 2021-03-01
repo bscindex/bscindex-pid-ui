@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import BigNumber from 'bignumber.js'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { Contract } from 'web3-eth-contract'
-import { usePid, useLottery } from './useContract'
+import { usePkid, useLottery } from './useContract'
 import { getAllowance } from '../utils/erc20'
 
 // Retrieve lottery allowance
@@ -10,20 +10,20 @@ export const useLotteryAllowance = () => {
   const [allowance, setAllowance] = useState(new BigNumber(0))
   const { account }: { account: string } = useWallet()
   const lotteryContract = useLottery()
-  const pidContract = usePid()
+  const pkidContract = usePkid()
 
   useEffect(() => {
     const fetchAllowance = async () => {
-      const res = await getAllowance(pidContract, lotteryContract, account)
+      const res = await getAllowance(pkidContract, lotteryContract, account)
       setAllowance(new BigNumber(res))
     }
 
-    if (account && pidContract && pidContract) {
+    if (account && pkidContract && pkidContract) {
       fetchAllowance()
     }
     const refreshInterval = setInterval(fetchAllowance, 10000)
     return () => clearInterval(refreshInterval)
-  }, [account, pidContract, lotteryContract])
+  }, [account, pkidContract, lotteryContract])
 
   return allowance
 }

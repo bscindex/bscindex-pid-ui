@@ -48,23 +48,23 @@ const Ifo = () => {
           <Title as="h2">{TranslateString(592, 'How to take part')}</Title>
           <Heading mb="16px">{TranslateString(594, 'Before Sale')}:</Heading>
           <List>
-            <li>{TranslateString(596, 'Buy PID and BNB tokens')}</li>
-            <li>{TranslateString(598, 'Get PID-BNB LP tokens by adding PID and BNB liquidity')}</li>
+            <li>{TranslateString(596, 'Buy PKID and BNB tokens')}</li>
+            <li>{TranslateString(598, 'Get PKID-BNB LP tokens by adding PKID and BNB liquidity')}</li>
           </List>
           <Flex mb="16px">
             <LinkExternal
               href="https://cheeseswap.app/#/swap?inputCurrency=0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c&outputCurrency=0x2cc26dd730f548dc4ac291ae7d84a0c96980d2cb"
               mr="16px"
             >
-              {TranslateString(999, 'Buy Pid')}
+              {TranslateString(999, 'Buy Pkid')}
             </LinkExternal>
-            <LinkExternal href="https://swap.pidfinance.app/#/add/ETH/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82">
+            <LinkExternal href="https://swap.pkidfinance.app/#/add/ETH/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82">
               {TranslateString(999, 'Get LP tokens')}
             </LinkExternal>
           </Flex>
           <Heading mb="16px">{TranslateString(600, 'During Sale')}:</Heading>
           <List>
-            <li>{TranslateString(602, 'While the sale is live, commit your PID-LP tokens to buy the IFO tokens')}</li>
+            <li>{TranslateString(602, 'While the sale is live, commit your PKID-LP tokens to buy the IFO tokens')}</li>
           </List>
           <Heading mb="16px">{TranslateString(604, 'After Sale')}:</Heading>
           <List>
@@ -72,7 +72,7 @@ const Ifo = () => {
             <li>{TranslateString(608, 'Done!')}</li>
           </List>
           <Text as="div" pt="16px">
-            <Button as="a" variant="secondary" href="https://pidfinance.app/">
+            <Button as="a" variant="secondary" href="https://pkidfinance.app/">
               {TranslateString(610, 'Read more')}
             </Button>
           </Text>
@@ -84,7 +84,7 @@ const Ifo = () => {
             <Text mb={3}>
               {TranslateString(
                 514,
-                'Launch your project with PidFinance, Binance Smart Chain’s most-used AMM project and liquidity provider, to bring your token directly to the most active and rapidly growing community on BSC.',
+                'Launch your project with PkidFinance, Binance Smart Chain’s most-used AMM project and liquidity provider, to bring your token directly to the most active and rapidly growing community on BSC.',
               )}
             </Text>
             <Button

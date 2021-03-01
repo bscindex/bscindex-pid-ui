@@ -5,10 +5,10 @@ import BigNumber from 'bignumber.js'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { provider } from 'web3-core'
 import { Image, Heading } from '@bscindexpid/uikit'
-import { BLOCKS_PER_YEAR, PID_PER_BLOCK, PID_POOL_PID } from 'config'
+import { BLOCKS_PER_YEAR, PKID_PER_BLOCK, PKID_POOL_PID } from 'config'
 import FlexLayout from 'components/layout/Flex'
 import Page from 'components/layout/Page'
-import { useFarms, usePriceBnbBusd, usePricePidBusd } from 'state/hooks'
+import { useFarms, usePriceBnbBusd, usePricePkidBusd } from 'state/hooks'
 import useRefresh from 'hooks/useRefresh'
 import { fetchFarmUserDataAsync } from 'state/actions'
 import { QuoteToken } from 'config/constants/types'
@@ -21,7 +21,7 @@ const Farms: React.FC = () => {
   const { path } = useRouteMatch()
   const TranslateString = useI18n()
   const farmsLP = useFarms()
-  const pidPrice = usePricePidBusd()
+  const pkidPrice = usePricePkidBusd()
   const bnbPrice = usePriceBnbBusd()
   const { account, ethereum }: { account: string; ethereum: provider } = useWallet()
 
@@ -41,23 +41,23 @@ const Farms: React.FC = () => {
   // to retrieve assets prices against USD
   const farmsList = useCallback(
     (farmsToDisplay, removed: boolean) => {
-      const pidPriceVsBNB = new BigNumber(farmsLP.find((farm) => farm.pid === PID_POOL_PID)?.tokenPriceVsQuote || 0)
+      const pkidPriceVsBNB = new BigNumber(farmsLP.find((farm) => farm.pid === PKID_POOL_PID)?.tokenPriceVsQuote || 0)
       const farmsToDisplayWithAPY: FarmWithStakedValue[] = farmsToDisplay.map((farm) => {
         if (!farm.tokenAmount || !farm.lpTotalInQuoteToken || !farm.lpTotalInQuoteToken) {
           return farm
         }
-        const pidRewardPerBlock = PID_PER_BLOCK.times(farm.poolWeight)
-        const pidRewardPerYear = pidRewardPerBlock.times(BLOCKS_PER_YEAR)
+        const pkidRewardPerBlock = PKID_PER_BLOCK.times(farm.poolWeight)
+        const pkidRewardPerYear = pkidRewardPerBlock.times(BLOCKS_PER_YEAR)
 
-        let apy = pidPriceVsBNB.times(pidRewardPerYear).div(farm.lpTotalInQuoteToken)
+        let apy = pkidPriceVsBNB.times(pkidRewardPerYear).div(farm.lpTotalInQuoteToken)
 
         if (farm.quoteTokenSymbol === QuoteToken.USDT || farm.quoteTokenSymbol === QuoteToken.USDC) {
-          apy = pidPriceVsBNB.times(pidRewardPerYear).div(farm.lpTotalInQuoteToken).times(bnbPrice)
-        } else if (farm.quoteTokenSymbol === QuoteToken.PID) {
-          apy = pidRewardPerYear.div(farm.lpTotalInQuoteToken)
+          apy = pkidPriceVsBNB.times(pkidRewardPerYear).div(farm.lpTotalInQuoteToken).times(bnbPrice)
+        } else if (farm.quoteTokenSymbol === QuoteToken.PKID) {
+          apy = pkidRewardPerYear.div(farm.lpTotalInQuoteToken)
         } else if (farm.dual) {
-          const pidApy =
-            farm && pidPriceVsBNB.times(pidRewardPerBlock).times(BLOCKS_PER_YEAR).div(farm.lpTotalInQuoteToken)
+          const pkidApy =
+            farm && pkidPriceVsBNB.times(pkidRewardPerBlock).times(BLOCKS_PER_YEAR).div(farm.lpTotalInQuoteToken)
           const dualApy =
             farm.tokenPriceVsQuote &&
             new BigNumber(farm.tokenPriceVsQuote)
@@ -65,7 +65,7 @@ const Farms: React.FC = () => {
               .times(BLOCKS_PER_YEAR)
               .div(farm.lpTotalInQuoteToken)
 
-          apy = pidApy && dualApy && pidApy.plus(dualApy)
+          apy = pkidApy && dualApy && pkidApy.plus(dualApy)
         }
 
         return { ...farm, apy }
@@ -76,19 +76,19 @@ const Farms: React.FC = () => {
           farm={farm}
           removed={removed}
           bnbPrice={bnbPrice}
-          pidPrice={pidPrice}
+          pkidPrice={pkidPrice}
           ethereum={ethereum}
           account={account}
         />
       ))
     },
-    [bnbPrice, farmsLP, account, pidPrice, ethereum],
+    [bnbPrice, farmsLP, account, pkidPrice, ethereum],
   )
 
   return (
     <Page>
       <Heading as="h1" size="lg" color="secondary" mb="50px" style={{ textAlign: 'center' }}>
-        {TranslateString(999, 'Stake Cheese-LP tokens to earn PID')}
+        {TranslateString(999, 'Stake Cheese-LP tokens to earn PKID')}
       </Heading>
       <Heading as="h3" size="lg" color="secondary" mb="50px" style={{ textAlign: 'center' }}>
         {TranslateString(
@@ -108,7 +108,7 @@ const Farms: React.FC = () => {
           </Route>
         </FlexLayout>
       </div>
-      <Image src="/images/farm-bg.png" alt="PidFinance illustration" width={1080} height={600} responsive />
+      <Image src="/images/farm-bg.png" alt="PKID illustration" width={1080} height={600} responsive />
     </Page>
   )
 }

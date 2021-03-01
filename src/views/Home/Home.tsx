@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Heading, Text, BaseLayout } from '@bscindexpid/uikit'
 import useI18n from 'hooks/useI18n'
 import Page from 'components/layout/Page'
-import PidStats from './components/PidStats'
+import PkidStats from './components/PkidStats'
 import FarmStakingCard from './components/FarmStakingCard'
 import LotteryCard from './components/LotteryCard'
 import TotalValueLockedCard from './components/TotalValueLockedCard'
@@ -106,7 +106,7 @@ const Home: React.FC = () => {
           <KeeperCard />
         </CTACards>
         <Cards>
-          <PidStats />
+          <PkidStats />
           <TotalValueLockedCard />
         </Cards>
       </div>

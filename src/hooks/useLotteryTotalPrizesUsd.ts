@@ -1,13 +1,13 @@
-import { usePricePidBusd } from 'state/hooks'
+import { usePricePkidBusd } from 'state/hooks'
 import { getBalanceNumber } from 'utils/formatBalance'
 import { useTotalRewards } from './useTickets'
 
 const useLotteryTotalPrizesUsd = () => {
   const totalRewards = useTotalRewards()
-  const totalPid = getBalanceNumber(totalRewards)
-  const pidPriceBusd = usePricePidBusd()
+  const totalPkid = getBalanceNumber(totalRewards)
+  const pkidPriceBusd = usePricePkidBusd()
 
-  return totalPid * pidPriceBusd.toNumber()
+  return totalPkid * pkidPriceBusd.toNumber()
 }
 
 export default useLotteryTotalPrizesUsd

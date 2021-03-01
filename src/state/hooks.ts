@@ -59,8 +59,8 @@ export const usePools = (account): Pool[] => {
   return pools
 }
 
-export const usePoolFromPid = (psiId): Pool => {
-  const pool = useSelector((state: State) => state.pools.data.find((p) => p.psiId === psiId))
+export const usePoolFromPid = (pksiId): Pool => {
+  const pool = useSelector((state: State) => state.pools.data.find((p) => p.pksiId === pksiId))
   return pool
 }
 
@@ -72,8 +72,8 @@ export const usePriceBnbBusd = (): BigNumber => {
   return farm.tokenPriceVsQuote ? new BigNumber(1).div(farm.tokenPriceVsQuote) : ZERO
 }
 
-export const usePricePidBusd = (): BigNumber => {
-  const pid = 1 // PID-BNB LP
+export const usePricePkidBusd = (): BigNumber => {
+  const pid = 1 // PKID-BNB LP
   const bnbPriceUSD = usePriceBnbBusd()
   const farm = useFarmFromPid(pid)
   return farm.tokenPriceVsQuote ? bnbPriceUSD.times(farm.tokenPriceVsQuote) : ZERO

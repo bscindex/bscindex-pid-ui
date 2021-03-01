@@ -62,7 +62,7 @@ const BuyTicketModal: React.FC<BuyTicketModalProps> = ({ max, onDismiss }) => {
     }
   }, [maxTickets])
 
-  const pidCosts = (amount: string): number => {
+  const pkidCosts = (amount: string): number => {
     return +amount * 0.1
   }
   return (
@@ -73,17 +73,17 @@ const BuyTicketModal: React.FC<BuyTicketModalProps> = ({ max, onDismiss }) => {
         onChange={handleChange}
         max={fullBalance}
         symbol="PSLT Ticket"
-        availableSymbol="PID"
+        availableSymbol="PKID"
       />
       <div>
-        <Tips>{TranslateString(456, 'Your amount must be a multiple of 0.1 PID')}</Tips>
-        <Tips>{TranslateString(458, '1 Ticket = 0.1 PID')}</Tips>
+        <Tips>{TranslateString(456, 'Your amount must be a multiple of 0.1 PKID')}</Tips>
+        <Tips>{TranslateString(458, '1 Ticket = 0.1 PKID')}</Tips>
       </div>
       <div>
         <Announce>
-          {TranslateString(478, 'Ticket purchases are final. Your PID cannot be returned to you after buying tickets.')}
+          {TranslateString(478, 'Ticket purchases are final. Your PKID cannot be returned to you after buying tickets.')}
         </Announce>
-        <Final>{TranslateString(460, `You will spend: ${pidCosts(val)} PID`)}</Final>
+        <Final>{TranslateString(460, `You will spend: ${pkidCosts(val)} PKID`)}</Final>
       </div>
       <ModalActions>
         <Button fullWidth variant="secondary" onClick={onDismiss}>

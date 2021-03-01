@@ -3,12 +3,12 @@
     "inputs": [
       {
         "internalType": "contract PancakeIndexToken",
-        "name": "_pid",
+        "name": "_pkid",
         "type": "address"
       },
       {
         "internalType": "contract PancakeIndexSecondary",
-        "name": "_psi",
+        "name": "_pksi",
         "type": "address"
       },
       {
@@ -18,7 +18,7 @@
       },
       {
         "internalType": "uint256",
-        "name": "_pidPerBlock",
+        "name": "_pkidPerBlock",
         "type": "uint256"
       },
       {
@@ -326,7 +326,7 @@
         "type": "address"
       }
     ],
-    "name": "pendingPid",
+    "name": "pendingPkid",
     "outputs": [
       {
         "internalType": "uint256",
@@ -339,7 +339,7 @@
   },
   {
     "inputs": [],
-    "name": "pid",
+    "name": "pkid",
     "outputs": [
       {
         "internalType": "contract PancakeIndexToken",
@@ -352,12 +352,25 @@
   },
   {
     "inputs": [],
-    "name": "pidPerBlock",
+    "name": "pkidPerBlock",
     "outputs": [
       {
         "internalType": "uint256",
         "name": "",
         "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "pksi",
+    "outputs": [
+      {
+        "internalType": "contract PancakeIndexSecondary",
+        "name": "",
+        "type": "address"
       }
     ],
     "stateMutability": "view",
@@ -390,7 +403,7 @@
       },
       {
         "internalType": "uint256",
-        "name": "accPidPerShare",
+        "name": "accPkidPerShare",
         "type": "uint256"
       }
     ],
@@ -405,19 +418,6 @@
         "internalType": "uint256",
         "name": "",
         "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "psi",
-    "outputs": [
-      {
-        "internalType": "contract PancakeIndexSecondary",
-        "name": "",
-        "type": "address"
       }
     ],
     "stateMutability": "view",

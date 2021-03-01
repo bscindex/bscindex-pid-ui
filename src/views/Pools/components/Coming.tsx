@@ -55,12 +55,12 @@ const Coming: React.FC = () => {
         </DetailPlaceholder>
         <DetailPlaceholder>
           <div style={{ flex: 1 }}>
-            <span role="img" aria-label="psi">
+            <span role="img" aria-label="pksi">
               🥝{' '}
             </span>
             {TranslateString(384, 'Your Stake')}:
           </div>
-          <Value> ... PID</Value>
+          <Value> ... PKID</Value>
         </DetailPlaceholder>
       </div>
       <Footer>

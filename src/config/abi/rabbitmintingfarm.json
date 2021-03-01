@@ -1,9 +1,9 @@
 [
   {
     "inputs": [
-      { "internalType": "contract IBEP20", "name": "_pidToken", "type": "address" },
+      { "internalType": "contract IBEP20", "name": "_pkidToken", "type": "address" },
       { "internalType": "uint256", "name": "_totalSupplyDistributed", "type": "uint256" },
-      { "internalType": "uint256", "name": "_pidPerBurn", "type": "uint256" },
+      { "internalType": "uint256", "name": "_pkidPerBurn", "type": "uint256" },
       { "internalType": "string", "name": "_baseURI", "type": "string" },
       { "internalType": "string", "name": "_ipfsHash", "type": "string" },
       { "internalType": "uint256", "name": "_endBlockNumber", "type": "uint256" }
@@ -48,14 +48,14 @@
   },
   {
     "inputs": [],
-    "name": "pidPerBurn",
+    "name": "pkidPerBurn",
     "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [],
-    "name": "pidToken",
+    "name": "pkidToken",
     "outputs": [{ "internalType": "contract IBEP20", "name": "", "type": "address" }],
     "stateMutability": "view",
     "type": "function"
@@ -118,8 +118,8 @@
   },
   {
     "inputs": [],
-    "name": "pidBunnies",
-    "outputs": [{ "internalType": "contract PanpidBunnies", "name": "", "type": "address" }],
+    "name": "pkidBunnies",
+    "outputs": [{ "internalType": "contract PanpkidBunnies", "name": "", "type": "address" }],
     "stateMutability": "view",
     "type": "function"
   },
@@ -155,7 +155,7 @@
   },
   {
     "inputs": [{ "internalType": "uint256", "name": "_amount", "type": "uint256" }],
-    "name": "withdrawPid",
+    "name": "withdrawPkid",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

@@ -3,9 +3,9 @@ import { useTotalClaim } from 'hooks/useTickets'
 import { getBalanceNumber } from 'utils/formatBalance'
 import CardValue from './CardValue'
 
-const PidWinnings = () => {
+const PkidWinnings = () => {
   const { claimAmount } = useTotalClaim()
   return <CardValue value={getBalanceNumber(claimAmount)} />
 }
 
-export default PidWinnings
+export default PkidWinnings
