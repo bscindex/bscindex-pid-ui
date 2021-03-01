@@ -2,7 +2,7 @@ import React from 'react'
 import useI18n from 'hooks/useI18n'
 import styled from 'styled-components'
 // import BigNumber from 'bignumber.js'
-import { Text, Flex, Link, LinkExternal } from '@bscindex/uikit'
+import { Text, Flex, Link, LinkExternal } from '@bscindexpid/uikit'
 // import { Farm } from 'state/types'
 import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
 

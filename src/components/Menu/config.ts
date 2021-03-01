@@ -1,4 +1,4 @@
-import { MenuEntry } from '@bscindex/uikit'
+import { MenuEntry } from '@bscindexpid/uikit'
 
 const config: MenuEntry[] = [
   {
