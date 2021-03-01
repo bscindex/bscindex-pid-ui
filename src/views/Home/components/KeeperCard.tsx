@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Heading, Card, CardBody, Flex, ArrowForwardIcon, Link } from '@bscindex/uikit'
+import { Heading, Card, CardBody, Flex, ArrowForwardIcon, Link } from '@bscindexpid/uikit'
 
 const StyledFarmStakingCard = styled(Card)`
   margin-left: auto;

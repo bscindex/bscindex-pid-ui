@@ -1,7 +1,7 @@
 import BigNumber from 'bignumber.js'
 import React, { useCallback, useMemo, useState } from 'react'
 import styled from 'styled-components'
-import { Button, Modal } from '@bscindex/uikit'
+import { Button, Modal } from '@bscindexpid/uikit'
 import { getFullDisplayBalance } from 'utils/formatBalance'
 import TicketInput from 'components/TicketInput'
 import ModalActions from 'components/ModalActions'

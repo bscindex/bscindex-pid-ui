@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Tag, Flex, Heading, Image } from '@bscindex/uikit'
+import { Tag, Flex, Heading, Image } from '@bscindexpid/uikit'
 import { CommunityTag, CoreTag } from 'components/Tags'
 
 export interface ExpandableSectionProps {

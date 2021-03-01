@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, CardBody, Heading } from '@bscindex/uikit'
+import { Card, CardBody, Heading } from '@bscindexpid/uikit'
 import { Timeline } from 'react-twitter-widgets'
 import styled from 'styled-components'
 import useI18n from 'hooks/useI18n'

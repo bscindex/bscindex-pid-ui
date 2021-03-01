@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Heading, Text } from '@bscindex/uikit'
+import { Heading, Text } from '@bscindexpid/uikit'
 import useI18n from 'hooks/useI18n'
 import Container from 'components/layout/Container'
 import LotteryProgress from './LotteryProgress'
