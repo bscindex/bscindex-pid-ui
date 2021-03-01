@@ -2,12 +2,12 @@
   {
     "inputs": [
       {
-        "internalType": "contract PidToken",
+        "internalType": "contract PancakeIndexToken",
         "name": "_pid",
         "type": "address"
       },
       {
-        "internalType": "contract PsiBar",
+        "internalType": "contract PancakeIndexSecondary",
         "name": "_psi",
         "type": "address"
       },
@@ -255,32 +255,6 @@
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "pid",
-    "outputs": [
-      {
-        "internalType": "contract PidToken",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "pidPerBlock",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
     "inputs": [
       {
         "internalType": "uint256",
@@ -364,6 +338,32 @@
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "pid",
+    "outputs": [
+      {
+        "internalType": "contract PancakeIndexToken",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "pidPerBlock",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [
       {
         "internalType": "uint256",
@@ -412,22 +412,22 @@
   },
   {
     "inputs": [],
-    "name": "renounceOwnership",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [],
     "name": "psi",
     "outputs": [
       {
-        "internalType": "contract PsiBar",
+        "internalType": "contract PancakeIndexSecondary",
         "name": "",
         "type": "address"
       }
     ],
     "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "renounceOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {

@@ -2,7 +2,7 @@
   {
     "inputs": [
       {
-        "internalType": "contract PidToken",
+        "internalType": "contract PancakeIndexToken",
         "name": "_pid",
         "type": "address"
       }
@@ -457,19 +457,6 @@
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "pid",
-    "outputs": [
-      {
-        "internalType": "contract PidToken",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
     "inputs": [
       {
         "internalType": "address",
@@ -572,6 +559,19 @@
   },
   {
     "inputs": [],
+    "name": "pid",
+    "outputs": [
+      {
+        "internalType": "contract PancakeIndexToken",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "renounceOwnership",
     "outputs": [],
     "stateMutability": "nonpayable",
@@ -590,7 +590,7 @@
         "type": "uint256"
       }
     ],
-    "name": "safePidTransfer",
+    "name": "safepidTransfer",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
