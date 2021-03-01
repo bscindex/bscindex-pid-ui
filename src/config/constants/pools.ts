@@ -13,12 +13,12 @@ const pools: PoolConfig[] = [
     },
     poolCategory: PoolCategory.CORE,
     projectLink: 'http://bscindex.com/',
-    harvest: true,
+    harvest: false,
     tokenPerBlock: '0.10',
     sortOrder: 1,
-    isFinished: false,
+    isFinished: true,
     tokenDecimals: 18,
-  },
+  }
 ]
 
 export default pools
