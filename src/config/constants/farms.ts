@@ -32,6 +32,35 @@ const farms: FarmConfig[] = [
     quoteTokenSymbol: QuoteToken.BNB,
     quoteTokenAdresses: contracts.wbnb,
   },
+   pid: 4,
+    lpSymbol: 'CTK-CHS LP',
+    lpAddresses: {
+      97: '',
+      56: '0xa5A1e8855A0D4f6C7Df6F1574CEa79ba9Ca47ff7',
+    },
+    tokenSymbol: 'CTK',
+    tokenAddresses: {
+      97: '',
+      56: '0xA8c2B8eec3d368C0253ad3dae65a5F2BBB89c929',
+    },
+    quoteTokenSymbol: QuoteToken.CHS,
+    quoteTokenAdresses: contracts.chs,
+  },
+   {
+    pid: 5,
+    lpSymbol: 'CTK-BNB LP',
+    lpAddresses: {
+      97: '',
+      56: '0xaeA443b0B54E255DAfeCD6766C7d36D8DF8F529E',
+    },
+    tokenSymbol: 'CTK',
+    tokenAddresses: {
+      97: '',
+      56: '0xA8c2B8eec3d368C0253ad3dae65a5F2BBB89c929',
+    },
+    quoteTokenSymbol: QuoteToken.BNB,
+    quoteTokenAdresses: contracts.wbnb,
+  },
   {
     pid: 2,
     lpSymbol: 'BUSD-BNB LP',

@@ -11,6 +11,12 @@ export default {
   eth: {
     56: '0x2170Ed0880ac9A755fd29B2688956BD959F933F8',
   },
+   ctk: {
+    56: '0xA8c2B8eec3d368C0253ad3dae65a5F2BBB89c929',
+  },
+   chs: {
+    56: '0xaDD8A06fd58761A5047426e160B2B88AD3B9D464',
+  },
   mulltiCall: {
     56: '0x52E54D127cA6474aB1C700335C4714f2515b4f3D',
   },
