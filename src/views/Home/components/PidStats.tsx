@@ -30,7 +30,7 @@ const PidStats = () => {
     <StyledPidStats>
       <CardBody>
         <Heading size="xl" mb="24px">
-          {TranslateString(534, 'Pid Stats')}
+          {TranslateString(534, 'PID Stats')}
         </Heading>
         <Row>
           <Text fontSize="14px">{TranslateString(536, 'Total PID Supply')}</Text>
