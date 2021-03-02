@@ -13,12 +13,12 @@ const config: MenuEntry[] = [
       {
         label: 'Exchange',
         href:
-          'https://cheeseswap.app/#/swap?inputCurrency=0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c&outputCurrency=0xcfdf8a80fecaeecc144fa74c0df8691bfd0e26e3',
+          'https://cheeseswap.app/#/swap?inputCurrency=0x0db5591ea716d2495860e1daa47114ca416f6055&outputCurrency=0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c',
       },
       {
         label: 'Liquidity',
         href:
-          'https://cheeseswap.app/#/add/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c/0xcfdf8a80fecaeecc144fa74c0df8691bfd0e26e3',
+          'https://cheeseswap.app/#/add/0x0db5591ea716d2495860e1daa47114ca416f6055/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c',
       },
     ],
   },
@@ -42,11 +42,11 @@ const config: MenuEntry[] = [
       },
       {
         label: 'Tokens',
-        href: 'https://info.cheeseswap.app/token/0xcfdf8a80fecaeecc144fa74c0df8691bfd0e26e3',
+        href: 'https://info.cheeseswap.app/token/0x0db5591ea716d2495860e1daa47114ca416f6055',
       },
       {
         label: 'Pairs',
-        href: 'https://info.cheeseswap.app/pair/0xdf8481f4ffb688d940f59f839c2613cc6c40a79e',
+        href: 'https://info.cheeseswap.app/pair/0x93289e37637055b4023eb3e5cfe4b03f9d8f4785',
       },
       {
         label: 'Accounts',
@@ -60,7 +60,7 @@ const config: MenuEntry[] = [
     items: [
       {
         label: 'Github',
-        href: 'https://github.com/pkidfinance',
+        href: 'https://github.com/bscindex',
       },
     ],
   },

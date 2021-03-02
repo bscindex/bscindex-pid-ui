@@ -1,6 +1,6 @@
 {
-  "name": "bscindex-frontend",
-  "version": "0.1.1",
+  "name": "bscindex-pkid-frontend",
+  "version": "0.1.3",
   "private": true,
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",
