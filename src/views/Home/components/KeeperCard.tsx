@@ -33,7 +33,7 @@ const KeeperCard = () => {
           <Heading color="contrast" size="lg">
             Earn KP3RB, BNB
           </Heading>
-          <StyledLink href="https:keep3rb.network" id="farm-apy-cta">
+          <StyledLink href="https://keep3rb.network" id="farm-apy-cta">
             <ArrowForwardIcon mt={30} color="primary" />
           </StyledLink>
         </Flex>
