@@ -42,7 +42,7 @@ const PkidStats = () => {
         </Row>
         <Row>
           <Text fontSize="14px">{TranslateString(540, 'New PKID/block')}</Text>
-          <CardValue fontSize="14px" decimals={4} value={0.02} />
+          <CardValue fontSize="14px" decimals={4} value={0.5} />
         </Row>
       </CardBody>
     </StyledPkidStats>
