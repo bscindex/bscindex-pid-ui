@@ -18,6 +18,96 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.wbnb,
   },
   {
+    pid: 6,
+    lpSymbol: 'CHS SOLO',
+    lpAddresses: {
+      97: '',
+      56: '0xaDD8A06fd58761A5047426e160B2B88AD3B9D464',
+    },
+    tokenSymbol: 'CHS',
+    tokenAddresses: {
+      97: '',
+      56: '0xaDD8A06fd58761A5047426e160B2B88AD3B9D464',
+    },
+    quoteTokenSymbol: QuoteToken.CHS,
+    quoteTokenAdresses: contracts.chs,
+  },
+  {
+    pid: 7,
+    lpSymbol: 'PIZZA SOLO',
+    lpAddresses: {
+      97: '',
+      56: '0x2cc26dd730F548dc4ac291ae7D84a0C96980d2cB',
+    },
+    tokenSymbol: 'PIZZA',
+    tokenAddresses: {
+      97: '',
+      56: '0x2cc26dd730F548dc4ac291ae7D84a0C96980d2cB',
+    },
+    quoteTokenSymbol: QuoteToken.PIZZA,
+    quoteTokenAdresses: contracts.pizza,
+  },
+  {
+    pid: 8,
+    lpSymbol: 'KP3RB SOLO',
+    lpAddresses: {
+      97: '',
+      56: '0x5EA29eEe799aA7cC379FdE5cf370BC24f2Ea7c81',
+    },
+    tokenSymbol: 'KP3RB',
+    tokenAddresses: {
+      97: '',
+      56: '0x5EA29eEe799aA7cC379FdE5cf370BC24f2Ea7c81',
+    },
+    quoteTokenSymbol: QuoteToken.KP3RB,
+    quoteTokenAdresses: contracts.kp3rb,
+  },
+  {
+    pid: 9,
+    lpSymbol: 'KIWI SOLO',
+    lpAddresses: {
+      97: '',
+      56: '0xCfDf8A80fECAeeCC144fa74c0Df8691BFd0e26e3',
+    },
+    tokenSymbol: 'KIWI',
+    tokenAddresses: {
+      97: '',
+      56: '0xCfDf8A80fECAeeCC144fa74c0Df8691BFd0e26e3',
+    },
+    quoteTokenSymbol: QuoteToken.KIWI,
+    quoteTokenAdresses: contracts.kiwi,
+  },
+  {
+    pid: 10,
+    lpSymbol: 'BUTT SOLO',
+    lpAddresses: {
+      97: '',
+      56: '0x0bc907e26377f7e072d27d7c57e72e13fc343abc',
+    },
+    tokenSymbol: 'BUTT',
+    tokenAddresses: {
+      97: '',
+      56: '0x0bc907e26377f7e072d27d7c57e72e13fc343abc',
+    },
+    quoteTokenSymbol: QuoteToken.BUTT,
+    quoteTokenAdresses: contracts.butt,
+  },
+  {
+    pid: 11,
+    lpSymbol: 'CID SOLO',
+    lpAddresses: {
+      97: '',
+      56: '0x93f44521A0b6dDE17E8C4BB8e85E8c215d2EEf0e',
+    },
+    tokenSymbol: 'CID',
+    tokenAddresses: {
+      97: '',
+      56: '0x93f44521A0b6dDE17E8C4BB8e85E8c215d2EEf0e',
+    },
+    quoteTokenSymbol: QuoteToken.CID,
+    quoteTokenAdresses: contracts.cid,
+  },
+  {
     pid: 1,
     lpSymbol: 'PKID-BNB LP',
     lpAddresses: {
