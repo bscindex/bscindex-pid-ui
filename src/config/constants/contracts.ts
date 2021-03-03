@@ -26,9 +26,6 @@ export default {
   busd: {
     56: '0xe9e7cea3dedca5984780bafc599bd69add087d56',
   },
-  chs: {
-    56: '0xaDD8A06fd58761A5047426e160B2B88AD3B9D464',
-  },
   pizza: {
     56: '0x2cc26dd730F548dc4ac291ae7D84a0C96980d2cB',
   },
