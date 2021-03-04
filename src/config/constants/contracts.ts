@@ -43,7 +43,7 @@ export default {
   },
   pksiChef: {
     97: '',
-    56: '',
+    56: '0x2C4f7fA878bfabC4A3b5A28C1b5Dc104f6ef3c1F',
   },
   lottery: {
     97: '',
