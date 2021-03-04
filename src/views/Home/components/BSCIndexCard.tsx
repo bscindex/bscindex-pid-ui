@@ -32,7 +32,7 @@ const BSCIndexCard = () => {
           <Heading color="contrast" size="lg">
             Developing
           </Heading>
-          <StyledLink href="#" id="farm-apy-cta">
+          <StyledLink href="https://bscindex.com/" id="farm-apy-cta">
             <ArrowForwardIcon mt={30} color="primary" />
           </StyledLink>
         </Flex>
