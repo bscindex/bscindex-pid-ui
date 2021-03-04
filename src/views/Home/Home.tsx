@@ -7,9 +7,6 @@ import PkidStats from './components/PkidStats'
 import FarmStakingCard from './components/FarmStakingCard'
 import LotteryCard from './components/LotteryCard'
 import TotalValueLockedCard from './components/TotalValueLockedCard'
-import EarnAPYCard from './components/EarnAPYCard'
-import EarnAssetCard from './components/EarnAssetCard'
-import WinCard from './components/WinCard'
 import TwitterCard from './components/TwitterCard'
 import BSCIndexCard from './components/BSCIndexCard'
 import KeeperCard from './components/KeeperCard'
@@ -86,20 +83,15 @@ const Home: React.FC = () => {
     <Page>
       <Hero>
         <Heading as="h1" size="xl" mb="24px" color="secondary">
-          {TranslateString(576, 'BSC Index Grower')}
+          {TranslateString(576, 'PancakeSwap Index')}
         </Heading>
-        <Text>{TranslateString(578, 'The First Index Grower Yield and Exchange Farm on Binance Smart Chain.')}</Text>
+        <Text>{TranslateString(578, 'The First Index Grower Yield Farm and Exchange on Binance Smart Chain.')}</Text>
       </Hero>
       <div>
         <Cards>
           <FarmStakingCard />
           <LotteryCard />
         </Cards>
-        <CTACards>
-          <EarnAPYCard />
-          <EarnAssetCard />
-          <WinCard />
-        </CTACards>
         <CTACards>
           <TwitterCard />
           <BSCIndexCard />
