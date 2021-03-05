@@ -27,7 +27,7 @@ const useUnstake = (pid: number) => {
   return { onUnstake: handleUnstake }
 }
 
-const PKSIIDS = [999]
+const PKSIIDS = [1, 2, 3, 4]
 
 export const usePksiUnstake = (pksiId) => {
   const dispatch = useDispatch()
