@@ -12,11 +12,11 @@ const config: MenuEntry[] = [
     href: '/',
   },
   {
-    label: 'Trade',
+    label: 'Swap',
     icon: 'TradeIcon',
     items: [
       {
-        label: 'Exchange',
+        label: 'Swap',
         href:
           'https://cheeseswap.app/#/swap?inputCurrency=0x0db5591ea716d2495860e1daa47114ca416f6055&outputCurrency=0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c',
       },
