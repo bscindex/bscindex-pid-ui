@@ -2,6 +2,11 @@ import { MenuEntry } from '@bscindexpid/uikit'
 
 const config: MenuEntry[] = [
   {
+    label: 'BSCIndex',
+    icon: 'BSCIndexIcon',
+    href: 'https://bscindex.com',
+  },
+  {
     label: 'Home',
     icon: 'HomeIcon',
     href: '/',
@@ -31,6 +36,16 @@ const config: MenuEntry[] = [
     label: 'Pools',
     icon: 'PoolIcon',
     href: '/pools',
+  },
+  {
+    label: 'Exchange',
+    icon: 'ExchangeIcon',
+    href: 'https://bscindex.com/#exchange',
+  },
+  {
+    label: 'Keeper',
+    icon: 'KeeperIcon',
+    href: 'https://keep3rb.network',
   },
   {
     label: 'Info',
