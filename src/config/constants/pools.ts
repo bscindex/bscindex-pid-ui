@@ -45,7 +45,7 @@ const pools: PoolConfig[] = [
     stakingTokenAddress: '0x0Db5591EA716d2495860E1dAa47114ca416F6055',
     contractAddress: {
       97: '',
-      56: '0x88f58e25E7D56131d259d9242f45Bb4579d2801E',
+      56: '0x57F7ba6eD4154cf509Dc349372C450F52eF554bF',
     },
     poolCategory: PoolCategory.CORE,
     projectLink: 'http://keep3rb.network',
